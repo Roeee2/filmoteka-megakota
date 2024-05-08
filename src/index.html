@@ -8,8 +8,14 @@
     <script type="module" src="./js/index.js"></script>
   </head>
   <body>
-    <h1>Example title</h1>
-    <!-- ❗️❗️❗️ Add partials like so for every page -->
-    <include src="./partials/example.html"></include>
+    <include src=".partials/header.html"></include>
+    <main>
+      <div class="container">
+        <include src="./partials/example.html"></include>
+      </div>
+    </main>
+    <footer>
+      <include src="./partials/footer.html"></include>
+    </footer>
   </body>
 </html>
