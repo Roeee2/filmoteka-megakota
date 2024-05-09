@@ -1,0 +1,58 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+}
+
+ul,
+ol {
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
+}
+
+body {
+  font-family: 'Montserrat', 'Inter', sans-serif;
+}
+
+//----------Tutaj trzeba dodać jeszcze trzcionki -------------
+
+:root {
+  // tutaj trzeba wrzucić wszytskie kolory + ich nazwy
+}
+
+.container {
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    width: 100%;
+    max-width: 768px;
+    margin: auto;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .container {
+    width: 100%;
+    max-width: 1280px;
+    margin: auto;
+  }
+}
