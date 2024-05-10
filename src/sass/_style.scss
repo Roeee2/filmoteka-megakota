@@ -41,11 +41,40 @@ body {
   margin: 0 auto;
 }
 
+.gallery-cards {
+  display: flex;
+  flex-direction: column;
+  padding: 0px;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding-top: 20px;
+  margin: 0 auto;
+}
+
+.film-card {
+  width: 280px;
+  height: 443px;
+  background-color: black;
+  list-style: none;
+}
+
 @media screen and (min-width: 768px) {
   .container {
     width: 100%;
     max-width: 768px;
     margin: auto;
+  }
+  .gallery-cards {
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: calc((336px * 2) + 32px);
+    height: 494px;
+    gap: 32px;
+  }
+  .film-card {
+    width: 336px;
+    height: 494px;
   }
 }
 
@@ -54,5 +83,14 @@ body {
     width: 100%;
     max-width: 1280px;
     margin: auto;
+  }
+  .gallery-cards {
+    width: calc((395px * 3) + 95px);
+    margin: 0px;
+    gap: 32px 16px;
+  }
+  .film-card {
+    width: 395px;
+    height: 643px;
   }
 }
