@@ -60,6 +60,31 @@ body {
   list-style: none;
 }
 
+.film-desc {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 133%;
+  padding-top: 8px;
+}
+.film-title {
+  color: #000;
+  text-transform: uppercase;
+}
+.film-info {
+  color: #ff6b08;
+}
+.film-rating {
+  border-radius: 5px;
+  width: 36px;
+  height: 16px;
+  background: #ff6b01;
+  font-weight: 500;
+  font-size: 12px;
+  text-align: center;
+  color: #fff;
+  padding: 1 10px;
+}
+
 @media screen and (min-width: 768px) {
   .container {
     width: 100%;
@@ -93,5 +118,23 @@ body {
   .film-card {
     width: 395px;
     height: 643px;
+  }
+  .film-desc {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 120%;
+    padding-top: 12px;
+  }
+  .film-title {
+    color: #000;
+    text-transform: uppercase;
+  }
+  .film-info {
+    color: #ff6b08;
+  }
+  .film-rating {
+    width: 40px;
+    height: 20px;
+    padding: 3 12px;
   }
 }
