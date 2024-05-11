@@ -27,18 +27,19 @@ ol {
 }
 
 body {
-  font-family: 'Montserrat', 'Inter', sans-serif;
+  font-family: sans-serif;
 }
 
 //----------Tutaj trzeba dodać jeszcze trzcionki -------------
 
 :root {
-  // tutaj trzeba wrzucić wszytskie kolory + ich nazwy
+  --background: #fff;
 }
 
 .container {
   max-width: 320px;
   margin: 0 auto;
+  background-color: var(--background);
 }
 
 .gallery-cards {
