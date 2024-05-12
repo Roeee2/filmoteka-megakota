@@ -24,22 +24,22 @@ document.addEventListener('DOMContentLoaded', () => {
     filmCard.onclick = openModal;
   }
 
-  const closeButton = document.querySelector('.close');
+  const closeButton = document.querySelector('.modal-close-button');
   if (closeButton) {
     closeButton.onclick = closeModal;
   }
 
-  const filmCover = document.getElementById('film-cover');
+  const filmCover = document.getElementById('cover-image');
   if (filmCover) {
     filmCover.src = '../images/film@1x.jpg';
   }
 
   // Sprawdź inne elementy i upewnij się, że istnieją
-  const filmTitle = document.getElementById('film-title');
+  const filmTitle = document.getElementById('movie-title');
   if (filmTitle) {
     filmTitle.innerText = 'A FISTFUL OF LEAD';
   } else {
-    console.error("Nie można znaleźć elementu 'film-title'.");
+    console.error("Nie można znaleźć elementu 'movie-title'.");
   }
 
   // Ustawianie danych modalnych
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Ustaw wartości w oknie modalnym
   function updateModalContent() {
     document.getElementById('film-cover').src = filmData.cover;
-    document.getElementById('film-title').innerText = filmData.title;
+    document.getElementById('movie-title').innerText = filmData.title;
     document.getElementById('film-votes').innerText = filmData.votes;
     document.getElementById('film-popularity').innerText = filmData.popularity;
     document.getElementById('film-original-title').innerText =
