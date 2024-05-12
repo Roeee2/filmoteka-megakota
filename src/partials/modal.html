@@ -36,3 +36,39 @@
     </div>
   </div>
 </div>
+<div id="filmModal" class="backdrop is-hidden">
+  <div class="modal">
+    <button type="button" class="modal-close-button" onclick="closeModal()">
+      <svg width="16" height="16" class="icon-close">
+        <use href="./images/icons.svg#icon-close"></use>
+      </svg>
+    </button>
+
+    <div class="modal-content">
+      <img id="film-cover" class="film-cover" src="" alt="Okładka filmu" />
+
+      <h2 id="film-title" class="title-modal"></h2>
+      <p>
+        <span class="film-details"> Vote / Votes: </span
+        ><span id="film-votes"></span>
+      </p>
+      <p>
+        <span class="film-details"> Popularity:</span>
+        <span id="film-popularity"></span>
+      </p>
+      <p>
+        <span class="film-details"> Original Title:</span>
+        <span id="film-original-title"></span>
+      </p>
+      <p>
+        <span class="film-details">Genre:</span>
+        <span id="film-genre"></span>
+      </p>
+      <p id="film-description" class="text-modal"></p>
+      <div class="modal-buttons">
+        <button onclick="addToWatched()">Add to Watched</button>
+        <button onclick="addToQueue()">Add to Queue</button>
+      </div>
+    </div>
+  </div>
+</div>
