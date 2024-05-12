@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../sass/_modal.css" />
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+  </head>
+  <body>
+    <div id="filmModal" class="backdrop is-hidden">
+      <div class="modal">
+        <div class="modal-content">
+          <span class="close" onclick="closeModal()">&times;</span>
+
+          <img id="film-cover" class="film-cover" src="" alt="Okładka filmu" />
+
+          <h2 id="film-title" class="title-modal"></h2>
+          <p>
+            <span class="film-details"> Vote / Votes: </span
+            ><span id="film-votes"></span>
+          </p>
+          <p>
+            <span class="film-details"> Popularity:</span>
+            <span id="film-popularity"></span>
+          </p>
+          <p>
+            <span class="film-details"> Original Title:</span>
+            <span id="film-original-title"></span>
+          </p>
+          <p>
+            <span class="film-details">Genre:</span>
+            <span id="film-genre"></span>
+          </p>
+          <p id="film-description" class="text-modal"></p>
+          <div class="modal-buttons">
+            <button onclick="addToWatched()">Add to Watched</button>
+            <button onclick="addToQueue()">Add to Queue</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="../js/modal.js" defer></script>
+  </body>
+</html>
