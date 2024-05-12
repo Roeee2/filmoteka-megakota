@@ -1,8 +1,40 @@
+@import '~node_modules/modern-normalize/modern-normalize.css';
+body {
+  font-family: "Roboto", sans-serif;
+  color: #ff6b08;
+  background-color: #e5e5e5;
+  margin: 0 auto;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition-property: color;
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+a:hover,
+a:focus {
+  color: #000;
+  transition-property: color;
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+button {
+  cursor: pointer;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
+
 * {
   margin: 0;
   padding: 0;
@@ -29,8 +61,6 @@ ol {
 body {
   font-family: sans-serif;
 }
-
-//----------Tutaj trzeba dodać jeszcze trzcionki -------------
 
 :root {
   --background: #fff;
@@ -66,13 +96,16 @@ body {
   line-height: 133%;
   padding-top: 8px;
 }
+
 .film-title {
   color: #000;
   text-transform: uppercase;
 }
+
 .film-info {
   color: #ff6b08;
 }
+
 .film-rating {
   border-radius: 5px;
   width: 36px;
@@ -94,7 +127,7 @@ body {
   .gallery-cards {
     flex-direction: row;
     flex-wrap: wrap;
-    width: calc((336px * 2) + 32px);
+    width: 704px;
     height: 494px;
     gap: 32px;
   }
@@ -103,7 +136,6 @@ body {
     height: 494px;
   }
 }
-
 @media screen and (min-width: 1280px) {
   .container {
     width: 100%;
@@ -111,7 +143,7 @@ body {
     margin: auto;
   }
   .gallery-cards {
-    width: calc((395px * 3) + 95px);
+    width: 1280px;
     margin: 0px;
     gap: 32px 16px;
   }
@@ -138,3 +170,21 @@ body {
     padding: 3 12px;
   }
 }
+.footer-wrapper {
+  padding-top: 30px;
+  padding-bottom: 28px;
+  background-color: #f7f7f7;
+  color: #545454;
+  font-weight: 400;
+  font-size: 16px;
+  text-align: center;
+}
+
+.footer-icon {
+  fill: #ff6b08;
+  padding: 0 5px;
+}
+
+.footer-link {
+  color: inherit;
+}/*# sourceMappingURL=index.css.map */
