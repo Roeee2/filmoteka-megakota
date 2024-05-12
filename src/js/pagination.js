@@ -1,5 +1,4 @@
-let currentPage;
-let totalPages;
+import axios from 'axios';
 
 export async function getDataAndCreatePagination() {
   try {
@@ -8,13 +7,13 @@ export async function getDataAndCreatePagination() {
     const data = response.data;
     totalPages = data.totalPages;
     currentPage = 1;
-    createPagination();
+    createPagination(currentPage, totalPages);
   } catch (error) {
     console.error('Error while collecting the data', error);
   }
 }
 
-export function createPagination() {
+export function createPagination(currentPage, totalPages) {
   //tworzenie kontenera na pagnację
 
   const paginationElement = document.querySelector('#pagination');
@@ -51,7 +50,6 @@ export function createPagination() {
 export function goToPage(page) {
   if (page >= 1 && page <= totalPages) {
     currentPage = page;
-    createPagination();
+    createPagination(currentPage, totalPages);
   }
 }
-getDataAndCreatePagination();
