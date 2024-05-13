@@ -1,0 +1,31 @@
+.footer-wrapper {
+  padding-top: 28px;
+  padding-bottom: 30px;
+  background-color: $bg-footer;
+  color: $text-footer;
+  font-family: $main-font;
+  font-weight: 400;
+  font-size: 14px;
+  text-align: center;
+}
+
+.footer-icon {
+  fill: $flush-orange;
+  // stroke: black;
+  padding: 0 5px;
+}
+
+.footer-link {
+    color: inherit;
+    text-decoration: underline;
+}
+
+@media screen and (min-width: 768px) {
+  .footer-wrapper {
+    display: flex;
+    justify-content: center;
+    font-size: 16px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+}
