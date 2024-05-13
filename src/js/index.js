@@ -6,5 +6,6 @@ import {
 } from './pagination';
 
 document.addEventListener('DOMContentLoaded', () => {
+  popularMovies();
   getDataAndCreatePagination();
 });

@@ -1,15 +1,22 @@
+import Notiflix from 'notiflix';
 import axios from 'axios';
+
+let currentPage;
+let totalPages;
 
 export async function getDataAndCreatePagination() {
   try {
-    const response = await axios.get;
-    ('https://api.themoviedb.org/3/trending/movie/day');
+    const apiKey =
+      'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5MWY1YWYyMjE5ZTYzODI0NDI4ZGIyMDNlOWQwZjhiZiIsInN1YiI6IjY2M2QxMjIyNjE1NmZkOTFhMWQ5YzIzNCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.YjDAlipNxEuu_zkNrtX4U9u1MEBCqRKJKaJyuTM1i94';
+    const response = await axios.get(
+      `https://api.themoviedb.org/3/trending/movie/day?api_key=${apiKey}&page=1`
+    );
     const data = response.data;
     totalPages = data.totalPages;
     currentPage = 1;
     createPagination(currentPage, totalPages);
   } catch (error) {
-    console.error('Error while collecting the data', error);
+    Notiflix.Notify.failure('Error while collecting the data', error);
   }
 }
 
@@ -29,7 +36,7 @@ export function createPagination(currentPage, totalPages) {
 
   //tworzenie numerów stron + podświetlenie aktywnego numeru strony
 
-  for (let i = 0; i <= totalPages; i++) {
+  for (let i = 1; i <= totalPages; i++) {
     const page = document.createElement('li');
     page.innerHTML = `<a href="#" onclick="goToPage(${i})">${i}</a>`;
     if (i === currentPage) {
