@@ -1,6 +1,9 @@
 @import './common';
 @import './example';
-@import './style';
-@import './home';
-@import './pagination';
-@import './footer';
+@import './components/section';
+@import './utils/_globals.scss';
+@import './utils/_mixins.scss';
+@import './utils/_vars.scss';
+@import './_style.scss';
+@import './_footer.scss';
+@import './_modal.scss';

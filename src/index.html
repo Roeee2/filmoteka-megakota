@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Filmoteka Megakota</title>
     <link rel="stylesheet" href="./sass/index.scss" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <h1>Filmoteka Megakota</h1>
@@ -13,11 +19,14 @@
       <div class="container">
         <include src="./partials/home.html"></include>
         <include src="./partials/myLibrary.html"></include>
+        <include src="./partials/modal.html"></include>
       </div>
     </main>
     <footer>
       <include src="./partials/footer.html"></include>
     </footer>
+    <include src="./partials/modal.html"></include>
     <script type="module" src="./js/index.js"></script>
+    <script src="./js/modal.js" defer></script>
   </body>
 </html>
