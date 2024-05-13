@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Ustaw wartości w oknie modalnym
   function updateModalContent() {
-    document.getElementById('film-cover').src = filmData.cover;
+    document.getElementById('cover-image').src = filmData.cover;
     document.getElementById('movie-title').innerText = filmData.title;
     document.getElementById('film-votes').innerText = filmData.votes;
     document.getElementById('film-popularity').innerText = filmData.popularity;
