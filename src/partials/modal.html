@@ -1,16 +1,21 @@
+<div id="cover-image" onclick="openModal()">
+  <img src="./images/film@1x.jpg" alt="Okładka filmu" />
 <div id="film-card" onclick="openModal()">
   <!-- <img src="../images/film@1x.jpg" alt="Okładka filmu" /> -->
-
   Kliknij tutaj, aby otworzyć okno modalne z informacjami o filmie
 </div>
 
 <div id="filmModal" class="backdrop is-hidden">
   <div class="modal">
+    <button type="button" class="modal-close-button" onclick="closeModal()">
+      <svg width="16" height="16" class="icon-close">
+        <use href="./images/icons.svg#icon-close"></use>
+      </svg>
+    </button>
     <div class="modal-content">
-      <span class="close" onclick="closeModal()">&times;</span>
-
+      <img id="cover-image" class="cover-image" src="" alt="Okładka filmu" />
+      <h2 id="movie-title"></h2>
       <!-- <img id="film-cover" class="film-cover" src="" alt="Okładka filmu" /> -->
-
       <h2 id="film-title"></h2>
       <p>
         <span class="film-details"> Vote / Votes: </span
