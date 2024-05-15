@@ -6,8 +6,7 @@ let totalPages;
 
 export async function getDataAndCreatePagination() {
   try {
-    const apiKey =
-      'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5MWY1YWYyMjE5ZTYzODI0NDI4ZGIyMDNlOWQwZjhiZiIsInN1YiI6IjY2M2QxMjIyNjE1NmZkOTFhMWQ5YzIzNCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.YjDAlipNxEuu_zkNrtX4U9u1MEBCqRKJKaJyuTM1i94';
+    const apiKey = '91f5af2219e63824428db203e9d0f8bf';
     const response = await axios.get(
       `https://api.themoviedb.org/3/trending/movie/day?api_key=${apiKey}&page=1`
     );

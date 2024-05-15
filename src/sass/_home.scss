@@ -1,11 +1,7 @@
-:root {
-  --background: #fff;
-}
-
 .container {
   max-width: 320px;
   margin: 0 auto;
-  background-color: var(--background);
+  background-color: $white;
 }
 
 .gallery-cards {
@@ -22,8 +18,36 @@
 .film-card {
   width: 280px;
   height: 443px;
-  background-color: black;
+  background-color: $white;
   list-style: none;
+}
+
+.pagination {
+  display: flex;
+  float: left;
+  width: 374px;
+  height: 40px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+}
+
+.pagination li {
+  margin-right: 5px;
+}
+
+.pagination li a {
+  text-decoration: none;
+  color: $black;
+  background-color: ;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.pagination li a.active {
+  background-color: $flush-orange;
+  color: $white;
 }
 
 @media screen and (min-width: 768px) {
