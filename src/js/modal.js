@@ -31,28 +31,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const filmCover = document.getElementById('cover-image');
   if (filmCover) {
-    filmCover.src = '../images/film@1x.jpg';
+    filmCover.src = './images/film@1x.jpg';
   }
 
   // Sprawdź inne elementy i upewnij się, że istnieją
-  const filmTitle = document.getElementById('movie-title');
-  if (filmTitle) {
-    filmTitle.innerText = 'A FISTFUL OF LEAD';
-  } else {
-    console.error("Nie można znaleźć elementu 'movie-title'.");
-  }
-
-  // Ustawianie danych modalnych
-  document.querySelector('.title-modal').innerText = filmData.title;
-  document.querySelector('.text-modal').innerText = filmData.description;
-  document.querySelector('.film-details').innerText =
-    'Vote / Votes: ' + filmData.votes;
-  document.querySelector('.film-details').innerText =
-    'Popularity: ' + filmData.popularity;
-  document.querySelector('.film-details').innerText =
-    'Original Title: ' + filmData.originalTitle;
-  document.querySelector('.film-details').innerText =
-    'Genre: ' + filmData.genre;
+  //  const filmTitle = document.getElementById('movie-title');
+  // if (filmTitle) {
+  // filmTitle.innerText = 'A FISTFUL OF LEAD';
+  // } else {
+  // console.error("Nie można znaleźć elementu 'movie-title'.");
+  // }
 
   // Ustaw wartości w oknie modalnym
   function updateModalContent() {
@@ -63,8 +51,11 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('film-original-title').innerText =
       filmData.originalTitle;
     document.getElementById('film-genre').innerText = filmData.genre;
-    document.getElementById('film-description').innerText =
-      filmData.description;
+
+    // Dodaj nowy akapit po słowie "ABOUT"
+    const descriptionElement = document.getElementById('film-description');
+    const descriptionParts = filmData.description.split('ABOUT');
+    descriptionElement.innerHTML = `ABOUT<p>${descriptionParts[1].trim()}</p>`;
   }
   // Zamknij okno modalne
 
