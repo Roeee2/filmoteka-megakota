@@ -74,6 +74,9 @@ body {
   margin: auto;
   padding: 20px;
   border: 1px solid #888;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .img-container {
@@ -125,6 +128,31 @@ body {
   font-size: 20px;
   color: #000;
   margin: 20px;
+  text-align: left;
+}
+
+.film-details-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.film-detail {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  margin: 4px 0;
+}
+
+.film-detail .film-details {
+  flex: 0 0 50%; /* Ustala szerokość etykiety */
+  text-align: left; /* Wyrównuje tekst do lewej */
+}
+
+.film-detail .film-details-style {
+  flex: 1; /* Pozwala szczegółom na zajęcie pozostałej przestrzeni */
+  text-align: left; /* Wyrównuje tekst do lewej */
 }
 
 .film-details-style {
@@ -133,7 +161,46 @@ body {
   font-size: 12px;
   line-height: 1.33333;
   color: #000;
+  margin: 4px 0;
 }
+
+#film-votes {
+  background-color: #fa6f54;
+  font-size: 12px;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  width: 30px;
+  height: 16px;
+}
+
+#film-votes-secondary {
+  background-color: #f7f7f7;
+  font-size: 12px;
+  color: #000;
+  padding: 4px 8px;
+  border-radius: 4px;
+  width: 30px;
+  height: 16px;
+}
+
+#film-votes-secondary::before {
+  content: '/';
+  color: #8c8c8c;
+  margin-right: 4px;
+}
+
+/*
+.film-votes {
+  display: inline-block;
+  width: 36px;
+  height: 16px;
+  background-color: #fa6f54;
+  color: white;
+  padding: 4px 8px;
+  vertical-align: middle; 
+  border-radius: 4px;
+}*/
 
 .film-details {
   font-family: 'Roboto', sans-serif;
@@ -141,6 +208,8 @@ body {
   font-size: 12px;
   line-height: 1.33333;
   color: #8c8c8c;
+  display: flex;
+  align-items: center;
 }
 
 .text-modal {
@@ -149,6 +218,7 @@ body {
   font-size: 12px;
   line-height: 1.66667;
   color: #000;
+  margin-top: 10px;
 }
 
 /* Kontener dla przycisków */
@@ -156,7 +226,7 @@ body {
   display: flex;
   gap: 20px;
   justify-content: center;
-  margin: 14px;
+  margin: 20px;
 }
 
 /* Przyciski */
@@ -173,6 +243,7 @@ body {
   color: #000;
   width: 110px;
   height: 44px;
+  padding: 27px auto;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -182,7 +253,7 @@ body {
   border: none;
 }
 
-//----------Tutaj trzeba dodać jeszcze trzcionki -------------
+/*----------Tutaj trzeba dodać jeszcze trzcionki -------------*/
 
 .container {
   max-width: 320px;
@@ -195,6 +266,13 @@ body {
     max-width: 768px;
     margin: auto;
   }
+
+  .modal {
+    display: flex;
+    align-items: stretch;
+    max-width: 860px;
+    min-height: 528px;
+  }
 }
 
 @media screen and (min-width: 1280px) {
@@ -202,5 +280,12 @@ body {
     width: 100%;
     max-width: 1280px;
     margin: auto;
+  }
+
+  .modal-content {
+    flex-direction: row; /* Zmiana orientacji na wiersz */
+    align-items: flex-start;
+    max-width: 600px; /* Dostosowanie szerokości kontenera */
+    width: 90%;
   }
 }
