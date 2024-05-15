@@ -1,5 +1,5 @@
 @use './../utils/vars' as *;
 .test-class2 {
-  color: pink;
+  color: $bg;
   background-color: blueviolet;
 }
