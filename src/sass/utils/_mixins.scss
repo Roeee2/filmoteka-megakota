@@ -9,3 +9,6 @@
     @content;
   }
 }
+@mixin font {
+  font-family: $main-font;
+}
