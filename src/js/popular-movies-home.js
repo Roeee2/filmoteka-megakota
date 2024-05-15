@@ -7,7 +7,8 @@ export async function popularMovies(page, gallery) {
     const response = await axios.get(
       `https://api.themoviedb.org/3/trending/movie/day?api_key=${apiKey}`
     );
-    const { data } = response;
+    const { data } = response.data;
+    console.log(data);
   } catch (error) {
     Notiflix.Notify.failure('Error while loading the movies', error);
     return null;
