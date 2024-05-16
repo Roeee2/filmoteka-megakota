@@ -10,7 +10,6 @@
   z-index: 1;
   transition-property: transform, opacity, visibility;
   transition: $standard;
-  @extend .is-hidden;
 }
 
 .is-hidden {
@@ -25,20 +24,24 @@
   position: fixed;
   top: 50%;
   left: 50%;
-  padding-left: 18px;
-  padding-right: 18px;
+  padding: 0px;
+  margin: 0px;
   transform: translate(-50%, -50%) scale(1);
-  max-width: 300px;
-  width: 90%;
-  min-height: 300px;
-  max-height: 100%;
-  background: white;
-  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12),
-    0px 2px 1px rgba(0, 0, 0, 0.2);
+  max-width: 280px;
+  height: 940px;
+  background: $white;
   transition: transform $standard;
-  padding: 0;
   overflow: auto;
-  @extend .is-hidden;
+
+  @include tablet {
+    max-width: 704px;
+    height: 552px;
+  }
+
+  @include desktop {
+    max-width: 806px;
+    height: 558px;
+  }
 }
 
 /* Kontent modalny */
@@ -47,14 +50,16 @@
   background-color: $white;
   margin: auto;
   padding: 20px;
-  border: 1px solid #888;
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: hidden;
 }
 
 .img-container {
-  padding-top: 20px;
+  padding-top: 48px;
+  max-width: 240px;
+  max-height: 357px;
 }
 
 /* Stylizowanie przycisków zamknięcia */
@@ -70,7 +75,6 @@
   height: 16px;
   background-color: transparent;
   padding: 0;
-  cursor: pointer;
   border: none;
   transition: background-color $standard, border $standard;
 }
@@ -79,7 +83,6 @@
 .close:focus {
   color: $black;
   text-decoration: none;
-  cursor: pointer;
 }
 
 .icon-close {
@@ -98,10 +101,8 @@
 }
 
 .title-modal {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 500;
   font-size: 20px;
-  color: #000;
+  color: $black;
   margin: 20px;
 }
 
@@ -113,28 +114,19 @@
 }
 
 .film-details-style {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 500;
-  font-size: 12px;
   line-height: 1.33333;
-  color: #000;
+  color: $black;
   margin: 4px 0;
 }
 
 .film-details {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 500;
-  font-size: 12px;
   line-height: 1.33333;
-  color: #8c8c8c;
+  color: $modal-info;
 }
 
 .text-modal {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 500;
-  font-size: 12px;
   line-height: 1.66667;
-  color: #000;
+  color: $black;
   margin-top: 10px;
   text-align: justify;
 }
@@ -151,28 +143,16 @@
 /* Przyciski */
 
 .modal-buttons button {
-  font-size: 12px;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 500;
   line-height: 1.33333;
   text-transform: uppercase;
-  cursor: pointer;
   background-color: transparent;
-  border: 1px solid black;
+  border: 1px solid $black;
   border-radius: 5px;
-  color: #000;
+  color: $black;
   width: 110px;
   height: 44px;
   transition: background-color $standard;
 }
-
-.modal-buttons button:hover {
-  background: #fa6f54;
-  color: white;
-  border: none;
-}
-
-//----------Tutaj trzeba dodać jeszcze czcionki -------------
 
 .container {
   max-width: 320px;

@@ -1,4 +1,5 @@
 @use './vars' as *;
+@use './mixins' as *;
 
 *,
 *::before,
@@ -11,9 +12,8 @@
 }
 
 body {
-  font-family: $main-font;
+  @include font;
   color: $flush-orange;
-
   margin: 0 auto;
 }
 
