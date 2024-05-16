@@ -13,12 +13,13 @@ const modal = document.getElementById('filmModal');
 const galleryList = document.querySelector('ul.gallery-cards');
 
 document.addEventListener('DOMContentLoaded', () => {
+  const modal = document.getElementById('filmModal');
+  const galleryList = document.querySelector('ul.gallery-cards');
+
   const openModal = () => {
     if (modal) {
       modal.classList.remove('is-hidden');
       updateModalContent();
-
-      // Add event listener to close modal when clicking outside of it
       const backdrop = document.querySelector('.backdrop');
       backdrop.addEventListener('click', closeModalOutside);
     }
@@ -27,14 +28,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const closeModal = () => {
     if (modal) {
       modal.classList.add('is-hidden');
-
-      // Remove event listener from backdrop to prevent further clicks from closing the modal
       const backdrop = document.querySelector('.backdrop');
       backdrop.removeEventListener('click', closeModalOutside);
     }
   };
 
-  // Function to close modal when clicking outside of it
   const closeModalOutside = event => {
     const modalContent = document.querySelector('.modal-content');
     if (!modalContent.contains(event.target)) {
@@ -42,12 +40,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  galleryList.addEventListener('click', openModal);
-
-  // Pobierz wszystkie elementy li z klasą film-card
-  const filmCards = document.querySelectorAll('.film-card');
-  filmCards.forEach(filmCard => {
-    filmCard.onclick = openModal;
+  galleryList.addEventListener('click', ev => {
+    filmData.cover = ev.target.src;
+    updateModalContent(filmData);
+    openModal();
   });
 
   const closeButton = document.querySelector('.modal-close-button');
@@ -55,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
     closeButton.onclick = closeModal;
   }
 
-  function updateModalContent() {
+  function updateModalContent(filmData) {
     document.getElementById('cover-image').src = filmData.cover;
     document.getElementById('movie-title').innerText = filmData.title;
 
@@ -67,8 +63,6 @@ document.addEventListener('DOMContentLoaded', () => {
     votesElement.innerText = votesInfo[0];
     votesSecondaryElement.innerText = votesInfo[1] || 'N/A';
 
-    votesElement.classList.add('film-votes');
-    votesSecondaryElement.classList.add('film-votes-secondary');
     document.getElementById('film-popularity').innerText = filmData.popularity;
     document.getElementById('film-original-title').innerText =
       filmData.originalTitle;
