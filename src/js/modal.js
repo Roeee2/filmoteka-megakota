@@ -19,7 +19,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const openModal = () => {
     if (modal) {
       modal.classList.remove('is-hidden');
-      updateModalContent();
       const backdrop = document.querySelector('.backdrop');
       backdrop.addEventListener('click', closeModalOutside);
     }
