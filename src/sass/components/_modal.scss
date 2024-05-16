@@ -76,8 +76,8 @@
   height: 357px;
 
   @include tablet {
-    width: 264px;
-    height: 373px;
+    max-width: 264px;
+    max-height: 373px;
     margin: 0 68px 0 0;
   }
 
