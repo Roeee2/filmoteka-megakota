@@ -1,8 +1,6 @@
 import Notiflix from 'notiflix';
 import axios from 'axios';
 
-
-
 export async function popularMovies(page = 1, gallery) {
   try {
     const params = new URLSearchParams({
@@ -13,7 +11,7 @@ export async function popularMovies(page = 1, gallery) {
     const response = await axios.get(
       `https://api.themoviedb.org/3/trending/movie/day?${params}`
     );
-    const data  = response.data;
+    const data = response.data;
     console.log(response.data);
     const { results, total_results } = data;
     if (results.length === 0) {

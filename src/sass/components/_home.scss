@@ -4,10 +4,13 @@
   background-color: $white;
 }
 
+.films-gallery-home {
+  display: flex;
+  flex-direction: column;
+}
 .gallery-cards {
   display: flex;
   flex-direction: column;
-  padding: 0px;
   align-items: center;
   justify-content: center;
   gap: 20px;
@@ -17,32 +20,59 @@
 
 .film-card {
   width: 280px;
-  height: 443px;
+  height: 440px;
   background-color: $white;
   list-style: none;
 }
 
+.film-img {
+  border-radius: 5px;
+  height: 402px;
+  width: 280px;
+}
+
+.film-title {
+  font-family: $main-font;
+  color: $black;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.film-info {
+  font-family: $main-font;
+  color: $flush-orange;
+  font-size: 12px;
+}
 .pagination {
   display: flex;
-  float: left;
-  width: 374px;
-  height: 40px;
+  justify-content: flex-start;
+  align-items: center;
   list-style: none;
   margin: 0;
   padding: 0;
+  border: 0.5px solid black;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
 }
 
 .pagination li {
   margin-right: 5px;
+  // width: 40px;
+  // height: 40px;
 }
 
 .pagination li a {
   text-decoration: none;
   color: $black;
   background-color: $white;
-  padding: 5px 10px;
   border-radius: 5px;
+  background-color: $bg-footer;
+  margin: 0 auto;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  width: 40px;
 }
 
 .pagination li a.active {
