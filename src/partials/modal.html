@@ -2,7 +2,7 @@
   <div class="modal">
     <div class="modal-content">
       <button type="button" class="modal-close-button">
-        <svg width="30" height="30" class="icon-close">
+        <svg class="icon-close">
           <use href="./images/icons.svg#icon-close"></use>
         </svg>
       </button>
@@ -14,8 +14,9 @@
           alt="Okładka filmu"
         />
       </div>
-      <h2 id="movie-title" class="title-modal"></h2>
       <div class="film-details-container">
+        <h2 id="movie-title" class="modal-film-title"></h2>
+
         <p>
           <span class="film-details"> Vote / Votes: </span>
           <span id="film-votes" class="film-details-style"></span>
@@ -33,11 +34,12 @@
           <span class="film-details">Genre:</span>
           <span id="film-genre" class="film-details-style"></span>
         </p>
-      </div>
-      <p id="film-description" class="text-modal"></p>
-      <div class="modal-buttons">
-        <button>Add to Watched</button>
-        <button>Add to Queue</button>
+
+        <p id="film-description" class="text-modal"></p>
+        <div class="modal-buttons">
+          <button>Add to Watched</button>
+          <button>Add to Queue</button>
+        </div>
       </div>
     </div>
   </div>

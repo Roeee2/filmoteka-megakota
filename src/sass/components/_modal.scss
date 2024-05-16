@@ -64,7 +64,7 @@
   }
 
   @include desktop {
-    padding: 40px 36px;
+    padding: 40px 12px;
     flex-direction: row;
   }
 }
@@ -72,43 +72,49 @@
 .img-container {
   box-sizing: content-box;
   margin-top: 28px;
-  max-width: 240px;
-  max-height: 357px;
+  width: 240px;
+  height: 357px;
 
   @include tablet {
-    max-width: 264px;
-    max-height: 373px;
+    width: 264px;
+    height: 373px;
+    margin: 0 68px 0 0;
   }
 
   @include desktop {
-    max-width: 375px;
-    max-height: 478px;
+    width: 375px;
+    height: 478px;
+    margin: 0;
+    margin: 0 16px 0 0;
   }
 }
 
 /* Stylizowanie przycisków zamknięcia */
 
-.modal-close-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  background-color: transparent;
-  padding: 0;
-  transition: background-color $standard, border $standard;
-}
-
-.close:hover,
-.close:focus {
-  color: $black;
-  text-decoration: none;
-}
-
 .icon-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 26px;
+  height: 26px;
+  padding: 0;
   transition: fill $standard;
-  stroke: $black;
+  fill: $black;
+
+  @include tablet {
+    width: 26px;
+    height: 26px;
+  }
+
+  @include desktop {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+.icon-close:hover,
+.icon-close:focus {
+  fill: $modal-info;
 }
 
 /* Stylizacja okładki filmu */
@@ -120,9 +126,15 @@
   justify-content: center;
 }
 
-.title-modal {
+.modal-film-title {
   font-size: 20px;
   color: $black;
+  margin: 0;
+  padding: 0;
+
+  @include desktop {
+    font-size: 30px;
+  }
 }
 
 .film-details-container {
