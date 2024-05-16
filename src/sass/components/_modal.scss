@@ -1,168 +1,64 @@
 @use './../utils/globals' as *;
 
 .backdrop {
+  background-color: $modal-shadow;
   position: fixed;
-  top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: $backdrop-bg;
+  right: 0;
+  top: 0;
+  bottom: 0;
   z-index: 1;
   transition-property: transform, opacity, visibility;
   transition: $standard;
 }
 
 .is-hidden {
-  opacity: 0;
-  visibility: hidden;
   pointer-events: none;
+  visibility: hidden;
+  opacity: 0;
 }
-
-/* Stylizacja okna modalnego */
 
 .modal {
   position: fixed;
   top: 50%;
   left: 50%;
-  padding-left: 18px;
-  padding-right: 18px;
-  transform: translate(-50%, -50%) scale(1);
-  max-width: 300px;
-  width: 90%;
-  min-height: 300px;
-  max-height: 100%;
-  background: white;
-  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12),
-    0px 2px 1px rgba(0, 0, 0, 0.2);
-  transition: transform $standard;
-  padding: 0;
-  overflow: auto;
-}
-
-/* Kontent modalny */
-
-.modal-content {
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 528px;
+  height: 581px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
   background-color: $white;
-  margin: auto;
-  padding: 20px;
-  border: 1px solid #888;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+  box-shadow: 0px 2px 1px 1px $modal-shadow;
+  box-sizing: content-box;
 
-.img-container {
-  padding-top: 20px;
-}
-
-/* Stylizowanie przycisków zamknięcia */
-
-.modal-close-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  top: 14px;
-  right: 14px;
-  width: 16px;
-  height: 16px;
-  background-color: transparent;
-  padding: 0;
-  border: none;
-  transition: background-color $standard, border $standard;
-}
-
-.close:hover,
-.close:focus {
-  color: $black;
-  text-decoration: none;
-}
-
-.icon-close {
-  transition: fill $standard;
-  stroke: $black;
-}
-
-/* Stylizacja okładki filmu */
-
-.cover-image {
-  border-radius: 5px;
-  width: 240px;
-  height: 357px;
-  text-align: center;
-  justify-content: center;
-}
-
-.title-modal {
-  font-size: 20px;
-  color: $black;
-  margin: 20px;
-}
-
-.film-details-container {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  width: 100%;
-}
-
-.film-details-style {
-  line-height: 1.33333;
-  color: $black;
-  margin: 4px 0;
-}
-
-.film-details {
-  line-height: 1.33333;
-  color: $modal-info;
-}
-
-.text-modal {
-  line-height: 1.66667;
-  color: $black;
-  margin-top: 10px;
-  text-align: justify;
-}
-
-/* Kontener dla przycisków */
-
-.modal-buttons {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  margin: 14px;
-}
-
-/* Przyciski */
-
-.modal-buttons button {
-  line-height: 1.33333;
-  text-transform: uppercase;
-  background-color: transparent;
-  border: 1px solid $black;
-  border-radius: 5px;
-  color: $black;
-  width: 110px;
-  height: 44px;
-  transition: background-color $standard;
-}
-
-.container {
-  max-width: 320px;
-  margin: 0 auto;
-}
-
-@media screen and (min-width: 768px) {
-  .container {
-    width: 100%;
-    max-width: 768px;
-    margin: auto;
+  &__close {
+    box-sizing: border-box;
+    position: absolute;
+    display: flex;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    background: $white;
+    border: 1px solid $black;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    transition-property: border, box-shadow;
+    transition: $standard;
+    fill: $black;
   }
-}
-@media screen and (min-width: 1280px) {
-  .container {
-    width: 100%;
-    max-width: 1280px;
-    margin: auto;
+
+  &__close:hover,
+  &__close:focus {
+    border: 1px solid $modal-shadow;
+    box-shadow: 0px 2px 2px 2px $modal-shadow;
+    transition-property: border, box-shadow;
+    transition: $standard;
   }
 }
