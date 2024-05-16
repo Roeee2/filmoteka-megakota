@@ -1,9 +1,19 @@
 @use './vars' as *;
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   font-family: $main-font;
   color: $flush-orange;
-  background-color: $bg;
+
   margin: 0 auto;
 }
 
@@ -21,11 +31,21 @@ a:focus {
   transition: $standard;
 }
 
-button {
-  cursor: pointer;
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
 
+button {
+  cursor: pointer;
+  border: none;
+}
+
+ol,
 ul {
   list-style-type: none;
+  list-style: none;
+  margin: 0;
   padding: 0;
 }
