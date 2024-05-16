@@ -11,7 +11,7 @@ export async function getDataAndCreatePagination() {
       `https://api.themoviedb.org/3/trending/movie/day?api_key=${apiKey}&page=1`
     );
     const data = response.data;
-    totalPages = data.totalPages;
+    totalPages = data.total_pages;
     currentPage = 1;
     createPagination(currentPage, totalPages);
   } catch (error) {
@@ -19,7 +19,7 @@ export async function getDataAndCreatePagination() {
   }
 }
 
-export function createPagination(currentPage, totalPages) {
+export function createPagination(currentPage, totalPages, funcName) {
   //tworzenie kontenera na pagnację
 
   const paginationElement = document.querySelector('#pagination');
@@ -28,32 +28,50 @@ export function createPagination(currentPage, totalPages) {
   //tworzenie strzałki w lewo przy pomocy encji HTML
 
   const prevPage = document.createElement('li');
-  prevPage.innerHTML = `<a href="#" onclick="goToPage(${
+  prevPage.innerHTML = `<a href="#" onclick="${funcName}(${
     currentPage - 1
   })">&laquo</a>`;
   paginationElement.appendChild(prevPage);
 
   //tworzenie numerów stron + podświetlenie aktywnego numeru strony
+  const page = document.createElement('li');
+  page.innerHTML = `<a href="#" onclick="${funcName}(1)">1</a>`;
+  if (1 === currentPage) {
+    page.querySelector('a').classList.add('active');
+  }
+  paginationElement.appendChild(page);
 
-  for (let i = 1; i <= totalPages; i++) {
+  if (currentPage >= 6) {
     const page = document.createElement('li');
-    page.innerHTML = `<a href="#" onclick="goToPage(${i})">${i}</a>`;
+    page.innerHTML = `<a href="#"">...</a>`;
+    paginationElement.appendChild(page);
+  }
+  for (
+    let i = currentPage - 2 < 1 ? 2 : currentPage - 2;
+    i <= totalPages;
+    i++
+  ) {
+    const page = document.createElement('li');
+    page.innerHTML = `<a href="#" onclick="${funcName}(${i})">${i}</a>`;
     if (i === currentPage) {
       page.querySelector('a').classList.add('active');
     }
     paginationElement.appendChild(page);
+    if (i > currentPage + 1) {
+      break;
+    }
   }
 
   //tworzenie strzałki w prawo przy pomocy encji HTML
 
   const nextPage = document.createElement('li');
-  nextPage.innerHTML = `<a href="#" onclick="goToPage(${
+  nextPage.innerHTML = `<a href="#" onclick="${funcName}(${
     currentPage + 1
   })">&raquo</a>`;
   paginationElement.appendChild(nextPage);
 }
 
-export function goToPage(page) {
+function goToPage(page) {
   if (page >= 1 && page <= totalPages) {
     currentPage = page;
     createPagination(currentPage, totalPages);
