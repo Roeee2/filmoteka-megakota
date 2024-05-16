@@ -11,7 +11,7 @@
   align-items: center;
   justify-content: center;
   gap: 20px;
-  padding-top: 20px;
+  // padding-top: 20px;
   margin: 0 auto;
 }
 
@@ -20,10 +20,11 @@
   height: 443px;
   background-color: $white;
   list-style: none;
+  margin-bottom: ;
 }
 
 .card-film-title {
-  font-size: 2rem;
+  font-size: 5rem;
   color: $black;
 }
 
@@ -57,9 +58,9 @@
 
 @media screen and (min-width: 768px) {
   .container {
-    width: 100%;
+    // width: 100%;
     max-width: 768px;
-    margin: auto;
+    // margin: auto;
   }
   .gallery-cards {
     flex-direction: row;
@@ -76,9 +77,9 @@
 
 @media screen and (min-width: 1280px) {
   .container {
-    width: 100%;
+    // width: 100%;
     max-width: 1280px;
-    margin: auto;
+    // margin: auto;
   }
   .gallery-cards {
     width: calc((395px * 3) + 95px);

@@ -59,11 +59,14 @@ export async function popularMovies(page = 1, gallery) {
       const filmCard = `<li class="film-card">
           <div class="film-cover">
           <img class="film-img"
-          src="https://image.tmdb.org/t/p/original${poster_path}alt="${original_title}>
-          <p class="card-film-title">${original_title}</p></div>
-          <div class="film-desc"><p class="film-info">
+          src="https://image.tmdb.org/t/p/original${poster_path}
+          alt="${original_title}></div>
+          <div class="film-desc">
+          <p class="card-film-title">${original_title}</p>
+          <p class="film-info">
           ${genre_ids}|${getReleaseYear}
-          </p></div>
+          </p>
+          </div>
         </li>`;
       gallery.insertAdjacentHTML('beforeend', filmCard);
     });
