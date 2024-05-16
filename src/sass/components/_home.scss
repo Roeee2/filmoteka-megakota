@@ -4,10 +4,13 @@
   background-color: $white;
 }
 
+.films-gallery-home {
+  display: flex;
+  flex-direction: column;
+}
 .gallery-cards {
   display: flex;
   flex-direction: column;
-  padding: 0px;
   align-items: center;
   justify-content: center;
   gap: 20px;
@@ -16,33 +19,60 @@
 }
 
 .film-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between
+  gap: 10px;
   width: 280px;
-  height: 443px;
+  height: 440px;
   background-color: $white;
   list-style: none;
 }
 
+.film-img {
+  border-radius: 5px;
+  height: 402px;
+  width: 280px;
+}
+
+.card-film-title {
+  font-family: $main-font;
+  color: $black;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.film-info {
+  font-family: $main-font;
+  color: $flush-orange;
+  font-size: 12px;
+}
 .pagination {
   display: flex;
-  float: left;
-  width: 374px;
-  height: 40px;
+  justify-content: flex-start;
+  align-items: center;
   list-style: none;
-  margin: 0;
-  padding: 0;
-  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  margin: 0 auto;
+  padding: 40px 0;
 }
 
 .pagination li {
-  margin-right: 5px;
+  margin: 0 auto;
 }
 
 .pagination li a {
   text-decoration: none;
   color: $black;
   background-color: $white;
-  padding: 5px 10px;
   border-radius: 5px;
+  background-color: $bg-footer;
+  margin: 0 auto;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  width: 40px;
 }
 
 .pagination li a.active {
@@ -61,13 +91,20 @@
     flex-wrap: wrap;
     width: calc((336px * 2) + 32px);
     gap: 32px;
+    padding-top: 59px;
   }
   .film-card {
     width: 336px;
     height: 494px;
   }
+  .film-img {
+    height: 455px;
+    width: 336px;
+  }
+  .pagination {
+    padding: 60px 0;
+  }
 }
-
 @media screen and (min-width: 1280px) {
   .container {
     width: 100%;
@@ -76,11 +113,21 @@
   }
   .gallery-cards {
     width: calc((395px * 3) + 95px);
-    margin: 0px;
     gap: 32px 16px;
   }
   .film-card {
     width: 395px;
     height: 643px;
+  }
+  .film-img {
+    height: 574px;
+    width: 395px;
+  }
+  .card-film-title {
+    font-size: 20px;
+  }
+
+  .film-info {
+    font-size: 20px;
   }
 }
