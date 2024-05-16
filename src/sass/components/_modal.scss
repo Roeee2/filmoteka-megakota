@@ -60,6 +60,12 @@
 
   @include tablet {
     padding: 40px 36px;
+    flex-direction: row;
+  }
+
+  @include desktop {
+    padding: 40px 36px;
+    flex-direction: row;
   }
 }
 
