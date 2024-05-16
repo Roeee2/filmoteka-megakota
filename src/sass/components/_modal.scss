@@ -1,4 +1,5 @@
 @use './../utils/globals' as *;
+@use './../utils/mixins' as *;
 
 .backdrop {
   position: fixed;
@@ -27,19 +28,19 @@
   padding: 0px;
   margin: 0px;
   transform: translate(-50%, -50%) scale(1);
-  max-width: 280px;
+  width: 280px;
   height: 940px;
   background: $white;
   transition: transform $standard;
-  overflow: auto;
+  overflow: hidden;
 
   @include tablet {
-    max-width: 704px;
+    width: 704px;
     height: 552px;
   }
 
   @include desktop {
-    max-width: 806px;
+    width: 806px;
     height: 558px;
   }
 }
@@ -54,12 +55,29 @@
   flex-direction: column;
   align-items: center;
   overflow: hidden;
+  max-height: 100%;
+  max-width: 100%;
+
+  @include tablet {
+    padding: 40px 36px;
+  }
 }
 
 .img-container {
-  padding-top: 48px;
+  box-sizing: content-box;
+  margin-top: 28px;
   max-width: 240px;
   max-height: 357px;
+
+  @include tablet {
+    max-width: 264px;
+    max-height: 373px;
+  }
+
+  @include desktop {
+    max-width: 375px;
+    max-height: 478px;
+  }
 }
 
 /* Stylizowanie przycisków zamknięcia */
@@ -69,13 +87,10 @@
   align-items: center;
   justify-content: center;
   position: absolute;
-  top: 14px;
-  right: 14px;
-  width: 16px;
-  height: 16px;
+  top: 8px;
+  right: 8px;
   background-color: transparent;
   padding: 0;
-  border: none;
   transition: background-color $standard, border $standard;
 }
 
@@ -94,16 +109,14 @@
 
 .cover-image {
   border-radius: 5px;
-  width: 240px;
-  height: 357px;
-  text-align: center;
+  width: 100%;
+  height: 100%;
   justify-content: center;
 }
 
 .title-modal {
   font-size: 20px;
   color: $black;
-  margin: 20px;
 }
 
 .film-details-container {
@@ -152,24 +165,4 @@
   width: 110px;
   height: 44px;
   transition: background-color $standard;
-}
-
-.container {
-  max-width: 320px;
-  margin: 0 auto;
-}
-
-@media screen and (min-width: 768px) {
-  .container {
-    width: 100%;
-    max-width: 768px;
-    margin: auto;
-  }
-}
-@media screen and (min-width: 1280px) {
-  .container {
-    width: 100%;
-    max-width: 1280px;
-    margin: auto;
-  }
 }

@@ -19,7 +19,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const openModal = () => {
     if (modal) {
       modal.classList.remove('is-hidden');
-      updateModalContent();
       const backdrop = document.querySelector('.backdrop');
       backdrop.addEventListener('click', closeModalOutside);
     }
@@ -40,16 +39,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
+  const closeButton = document.querySelector('.modal-close-button');
+  if (closeButton) {
+    closeButton.onclick = closeModal;
+  }
+
   galleryList.addEventListener('click', ev => {
     filmData.cover = ev.target.src;
     updateModalContent(filmData);
     openModal();
   });
-
-  const closeButton = document.querySelector('.modal-close-button');
-  if (closeButton) {
-    closeButton.onclick = closeModal;
-  }
 
   function updateModalContent(filmData) {
     document.getElementById('cover-image').src = filmData.cover;
