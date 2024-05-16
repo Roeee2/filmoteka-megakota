@@ -40,16 +40,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
+  const closeButton = document.querySelector('.modal-close-button');
+  if (closeButton) {
+    closeButton.onclick = closeModal;
+  }
+
   galleryList.addEventListener('click', ev => {
     filmData.cover = ev.target.src;
     updateModalContent(filmData);
     openModal();
   });
-
-  const closeButton = document.querySelector('.modal-close-button');
-  if (closeButton) {
-    closeButton.onclick = closeModal;
-  }
 
   function updateModalContent(filmData) {
     document.getElementById('cover-image').src = filmData.cover;
