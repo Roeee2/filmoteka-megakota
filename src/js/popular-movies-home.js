@@ -57,7 +57,7 @@ export async function popularMovies(page = 1, gallery) {
       const getReleaseYear = release_date.split('-')[0];
       const genres = await makeGenresString(genre_ids);
       const filmCard = `
-        <li class="film-card">
+        <li class="film-card" id="film-card">
           <div class="film-cover">
             <img class="film-img" src="https://image.tmdb.org/t/p/original${poster_path}" alt="${original_title}">
           </div>
