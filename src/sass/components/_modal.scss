@@ -30,6 +30,8 @@
   transform: translate(-50%, -50%) scale(1);
   width: 280px;
   height: 940px;
+  max-height: 90%;
+  max-width: 90%;
   background: $white;
   transition: transform $standard;
   overflow: hidden;
@@ -49,14 +51,12 @@
 
 .modal-content {
   background-color: $white;
-  margin: auto;
-  padding: 20px;
+  margin: 30px auto;
+
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   overflow: hidden;
-  max-height: 100%;
-  max-width: 100%;
 
   @include tablet {
     padding: 40px 36px;
@@ -66,12 +66,13 @@
   @include desktop {
     padding: 40px 12px;
     flex-direction: row;
+    border: solid 1px green;
   }
 }
 
 .img-container {
   box-sizing: content-box;
-  margin-top: 28px;
+  margin: 28px auto 0;
   width: 240px;
   height: 357px;
 
@@ -128,12 +129,19 @@
 
 .modal-film-title {
   font-size: 20px;
+  font-weight: 500;
   color: $black;
-  margin: 0;
+  margin-bottom: 20px;
   padding: 0;
+  text-align: start;
+
+  @include tablet {
+    margin: 0 0 20px 0;
+  }
 
   @include desktop {
     font-size: 30px;
+    margin: 0 0 20px 0;
   }
 }
 
@@ -142,6 +150,7 @@
   flex-direction: column;
   align-items: flex-start;
   width: 100%;
+  padding: 20px;
 }
 
 .film-details-style {
