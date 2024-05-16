@@ -1,7 +1,10 @@
 import Notiflix from 'notiflix';
 import axios from 'axios';
+
 const apiKey = '91f5af2219e63824428db203e9d0f8bf';
+
 const genresQuery = `https://api.themoviedb.org/3/genre/movie/list?api_key=${apiKey}`;
+
 const getGenres = async () => {
   try {
     const response = await axios.get(genresQuery);
@@ -11,6 +14,7 @@ const getGenres = async () => {
     return [];
   }
 };
+
 const makeGenresString = async array => {
   try {
     const genres = await getGenres();
@@ -24,10 +28,11 @@ const makeGenresString = async array => {
     return 'Unknown';
   }
 };
+
 export async function popularMovies(page = 1, gallery) {
   try {
     const params = new URLSearchParams({
-      api_key: '91f5af2219e63824428db203e9d0f8bf',
+      api_key: apiKey,
       page: page,
       per_page: 20,
     });
@@ -35,8 +40,8 @@ export async function popularMovies(page = 1, gallery) {
       `https://api.themoviedb.org/3/trending/movie/day?${params}`
     );
     const data = response.data;
-    console.log(response.data);
     const { results, total_results } = data;
+
     if (results.length === 0) {
       gallery.innerHTML = '';
       Notiflix.Notify.failure(
@@ -45,25 +50,24 @@ export async function popularMovies(page = 1, gallery) {
     } else {
       Notiflix.Notify.success(`Hooray! We found ${total_results} movies.`);
     }
-    results.forEach(result => {
+
+    for (const result of results) {
       const { poster_path, original_title, genre_ids, release_date } = result;
-      const gallery = document.querySelector('.gallery-cards');
+      const galleryElement = document.querySelector('.gallery-cards');
       const getReleaseYear = release_date.split('-')[0];
-      const genres = makeGenresString(genre_ids);
-      const filmCard = `<li class="film-card">
+      const genres = await makeGenresString(genre_ids);
+      const filmCard = `
+        <li class="film-card">
           <div class="film-cover">
-          <img class="film-img"
-          src="https://image.tmdb.org/t/p/original${poster_path}
-          alt="${original_title}></div>
+            <img class="film-img" src="https://image.tmdb.org/t/p/original${poster_path}" alt="${original_title}">
+          </div>
           <div class="film-desc">
-          <p class="card-film-title">${original_title}</p>
-          <p class="film-info">
-          ${genre_ids}|${getReleaseYear}
-          </p>
+            <p class="card-film-title">${original_title}</p>
+            <p class="film-info">${genres} | ${getReleaseYear}</p>
           </div>
         </li>`;
-      gallery.insertAdjacentHTML('beforeend', filmCard);
-    });
+      galleryElement.insertAdjacentHTML('beforeend', filmCard);
+    }
   } catch (error) {
     Notiflix.Notify.failure('Error while loading the movies', error);
     console.log(error);
