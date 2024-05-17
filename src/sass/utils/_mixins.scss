@@ -1,4 +1,11 @@
 @use './vars' as *;
+
+@mixin smallmob {
+  @media screen and (max-width: 310px) {
+    @content;
+  }
+}
+
 @mixin tablet {
   @media screen and (min-width: 768px) {
     @content;
@@ -10,6 +17,7 @@
     @content;
   }
 }
+
 @mixin font {
   font-family: $main-font;
   font-weight: 500;

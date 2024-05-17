@@ -1,5 +1,4 @@
 @use './../utils/globals' as *;
-@use './../utils/mixins' as *;
 
 .backdrop {
   position: fixed;
@@ -19,8 +18,6 @@
   pointer-events: none;
 }
 
-/* Stylizacja okna modalnego */
-
 .modal {
   position: fixed;
   top: 50%;
@@ -32,9 +29,7 @@
   height: 940px;
   max-height: 90%;
   max-width: 90%;
-  background: $white;
   transition: transform $standard;
-  overflow: hidden;
 
   @include tablet {
     width: 704px;
@@ -45,57 +40,45 @@
     width: 806px;
     height: 558px;
   }
+
+  @include smallmob {
+    width: 80%;
+  }
 }
 
-/* Kontent modalny */
-
 .modal-content {
+  box-sizing: content-box;
   background-color: $white;
-  margin: 30px auto;
-
+  margin: 0;
+  padding: 20px 20px 50px 20px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   overflow: hidden;
+  max-width: 280px;
+  max-height: 940px;
 
   @include tablet {
+    margin: 0;
     padding: 40px 36px;
     flex-direction: row;
+    max-width: 704px;
+    max-height: 552px;
   }
 
   @include desktop {
+    margin: 0;
     padding: 40px 12px;
     flex-direction: row;
-    border: solid 1px green;
+    max-width: 806px;
+    max-height: 558px;
   }
 }
-
-.img-container {
-  box-sizing: content-box;
-  margin: 28px auto 0;
-  width: 240px;
-  height: 357px;
-
-  @include tablet {
-    max-width: 264px;
-    max-height: 373px;
-    margin: 0 68px 0 0;
-  }
-
-  @include desktop {
-    width: 375px;
-    height: 478px;
-    margin: 0;
-    margin: 0 16px 0 0;
-  }
-}
-
-/* Stylizowanie przycisków zamknięcia */
 
 .icon-close {
   position: absolute;
-  top: 16px;
-  right: 16px;
+  top: 8px;
+  right: 8px;
   width: 26px;
   height: 26px;
   padding: 0;
@@ -118,20 +101,50 @@
   fill: $modal-info;
 }
 
-/* Stylizacja okładki filmu */
+.img-container {
+  margin: 28px auto 0;
+  padding: 0;
+  min-width: 240px;
+  min-height: 357px;
+
+  @include tablet {
+    width: 264px;
+    height: 373px;
+    margin: 0 68px 0 0;
+  }
+
+  @include desktop {
+    width: 375px;
+    height: 478px;
+    margin: 0;
+    margin: 0 16px 0 0;
+  }
+
+  @include smallmob {
+    width: 80%;
+    min-height: 80%;
+  }
+}
 
 .cover-image {
   border-radius: 5px;
   width: 100%;
   height: 100%;
-  justify-content: center;
+
+  @include smallmob {
+    width: 80%;
+  }
 }
 
+.film-details-container {
+  margin: 0;
+  padding: 0;
+}
 .modal-film-title {
   font-size: 20px;
   font-weight: 500;
   color: $black;
-  margin-bottom: 20px;
+  margin: 20px 0;
   padding: 0;
   text-align: start;
 
@@ -145,42 +158,26 @@
   }
 }
 
-.film-details-container {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  width: 100%;
-  padding: 20px;
-}
-
-.film-details-style {
-  line-height: 1.33333;
-  color: $black;
-  margin: 4px 0;
-}
-
 .film-details {
-  line-height: 1.33333;
+  line-height: 1.33;
+  margin-bottom: 8px;
   color: $modal-info;
 }
 
 .text-modal {
-  line-height: 1.66667;
+  line-height: 1.66;
   color: $black;
   margin-top: 10px;
   text-align: justify;
 }
 
-/* Kontener dla przycisków */
-
 .modal-buttons {
   display: flex;
   gap: 20px;
   justify-content: center;
-  margin: 14px;
+  margin: 0;
+  padding: 0;
 }
-
-/* Przyciski */
 
 .modal-buttons button {
   line-height: 1.33333;
