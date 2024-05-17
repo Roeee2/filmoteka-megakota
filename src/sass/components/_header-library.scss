@@ -1,6 +1,8 @@
 .header-library {
   background-color: #c4c4c4;
-  background-image: url('./../images/mobile-logged-bg.jpg');
+  background-image: linear-gradient($bg-shadow, $bg-shadow),
+    url('./../images/mobile-logged-bg.jpg');
+
   background-repeat: no-repeat;
   background-position: 50%, 50%;
   background-size: cover;
@@ -35,13 +37,15 @@
   (min-resolution: 192dpi),
   (min-resolution: 2dppx) {
   .header-library {
-    background-image: url('./../images/mobile-logged-bg@2x.jpg');
+    background-image: linear-gradient($bg-shadow, $bg-shadow),
+      url('./../images/mobile-logged-bg@2x.jpg');
   }
 }
 
 @media screen and (min-width: 768px) {
   .header-library {
-    background-image: url('./../images/tablet-logged-bg.jpg');
+    background-image: linear-gradient($bg-shadow, $bg-shadow),
+      url('./../images/tablet-logged-bg.jpg');
     padding: 40px 32px 81px 32px;
   }
 
@@ -49,7 +53,8 @@
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
     .header-library {
-      background-image: url('./../images/tablet-logged-bg@2x.jpg');
+      background-image: linear-gradient($bg-shadow, $bg-shadow),
+        url('./../images/tablet-logged-bg@2x.jpg');
     }
   }
 
@@ -64,14 +69,16 @@
 
 @media screen and (min-width: 1024px) {
   .header-library {
-    background-image: url('./../images/desktop-logged-bg.jpg');
+    background-image: linear-gradient($bg-shadow, $bg-shadow),
+      url('./../images/desktop-logged-bg.jpg');
   }
 
   @media (min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
     .header-library {
-      background-image: url('./../images/desktop-logged-bg@2x.jpg');
+      background-image: linear-gradient($bg-shadow, $bg-shadow),
+        url('./../images/desktop-logged-bg@2x.jpg');
     }
   }
 
