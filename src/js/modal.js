@@ -1,13 +1,4 @@
-const filmData = {
-  cover: '../images/film@1x.jpg',
-  title: 'A FISTFUL OF LEAD',
-  votes: '7.3 1260',
-  popularity: '100.2',
-  originalTitle: 'A FISTFUL OF LEAD',
-  genre: 'Western',
-  description:
-    "ABOUT  Four of the West's most infamous outlaws assemble to steal a huge stash of gold from the most corrupt settlement of the gold rush towns. But not all goes to plan one is killed and the other three escapes with bags of gold hide out in the abandoned gold mine where they happen across another gang of three – who themselves were planning to hit the very same bank! As tensions rise, things go from bad to worse as they realise the bags of gold are filled with lead... they've been double crossed – but by who and how?",
-};
+import { getFilmData } from './common';
 
 const modal = document.getElementById('filmModal');
 const galleryList = document.querySelector('ul.gallery-cards');
@@ -55,33 +46,69 @@ document.addEventListener('DOMContentLoaded', () => {
     closeButton.onclick = closeModal;
   }
 
-  galleryList.addEventListener('click', ev => {
-    filmData.cover = ev.target.src;
+  galleryList.addEventListener('click', async ev => {
+    // filmData.cover = ev.target.src;
+    const filmCard = ev.target.closest('.film-card');
+    filmId = filmCard.dataset.id;
+    console.log(filmId);
+    const filmData = await getFilmData(filmId);
+    console.log(filmData);
     updateModalContent(filmData);
     openModal();
   });
 
   function updateModalContent(filmData) {
-    document.getElementById('cover-image').src = filmData.cover;
-    document.getElementById('movie-title').innerText = filmData.title;
+    const {
+      poster_path,
+      title,
+      vote_average,
+      vote_count,
+      popularity,
+      original_title,
+      overview,
+    } = filmData;
+    document.getElementById('cover-image').src=`https://image.tmdb.org/t/p/original${poster_path}`;
+    document.getElementById('movie-title').innerText = title;
 
     const votesElement = document.getElementById('film-votes');
     const votesSecondaryElement = document.getElementById(
       'film-votes-secondary'
     );
-    const votesInfo = filmData.votes.split(' ');
-    votesElement.innerText = votesInfo[0];
-    votesSecondaryElement.innerText = votesInfo[1] || 'N/A';
+    // const votesInfo = votes.split(' ');
+    // votesElement.innerText = votesInfo[0];
+    // votesSecondaryElement.innerText = votesInfo[1] || 'N/A';
 
-    document.getElementById('film-popularity').innerText = filmData.popularity;
+    document.getElementById('film-popularity').innerText = popularity;
     document.getElementById('film-original-title').innerText =
-      filmData.originalTitle;
-    document.getElementById('film-genre').innerText = filmData.genre;
+      original_title;
+    // document.getElementById('film-genre').innerText = filmData.genre;
 
-    const descriptionElement = document.getElementById('film-description');
-    const descriptionParts = filmData.description.split('ABOUT');
-    descriptionElement.innerHTML = `ABOUT<p>${descriptionParts[1].trim()}</p>`;
+    // const descriptionElement = document.getElementById('film-description');
+    // const descriptionParts = filmData.description.split('ABOUT');
+    // descriptionElement.innerHTML = `ABOUT<p>${descriptionParts[1].trim()}</p>`;
   }
+
+  // function updateModalContent(filmInfo) {
+  //   document.getElementById('cover-image').src = poster_path;
+  // document.getElementById('movie-title').innerText = filmData.title;
+
+  // const votesElement = document.getElementById('film-votes');
+  // const votesSecondaryElement = document.getElementById(
+  //   'film-votes-secondary'
+  // );
+  // const votesInfo = filmData.votes.split(' ');
+  // votesElement.innerText = votesInfo[0];
+  // votesSecondaryElement.innerText = votesInfo[1] || 'N/A';
+
+  // document.getElementById('film-popularity').innerText = filmData.popularity;
+  // document.getElementById('film-original-title').innerText =
+  //   filmData.originalTitle;
+  // document.getElementById('film-genre').innerText = filmData.genre;
+
+  // const descriptionElement = document.getElementById('film-description');
+  // const descriptionParts = filmData.description.split('ABOUT');
+  // descriptionElement.innerHTML = `ABOUT<p>${descriptionParts[1].trim()}</p>`;
+  // }
 
   function addToWatched() {
     console.log('Dodano do obejrzanych');
