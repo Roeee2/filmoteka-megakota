@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
       modal.classList.remove('is-hidden');
       const backdrop = document.querySelector('.backdrop');
       backdrop.addEventListener('click', closeModalOutside);
+      document.addEventListener('keydown', closeModalOnEscKey);
     }
   };
 
@@ -29,8 +30,18 @@ document.addEventListener('DOMContentLoaded', () => {
       modal.classList.add('is-hidden');
       const backdrop = document.querySelector('.backdrop');
       backdrop.removeEventListener('click', closeModalOutside);
+      window.removeEventListener('keydown', closeModalOnEscKey);
+
     }
   };
+
+  const closeModalOnEscKey = event => {
+    window.addEventListener('keydown', function (event) {
+      if (event.key === "Escape") {
+        closeModal();
+      }
+    })
+  }; 
 
   const closeModalOutside = event => {
     const modalContent = document.querySelector('.modal-content');
