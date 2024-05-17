@@ -1,0 +1,86 @@
+.header-library {
+  background-color: #c4c4c4;
+  background-image: url('./../images/mobile-logged-bg.jpg');
+  background-repeat: no-repeat;
+  background-position: 50%, 50%;
+  background-size: cover;
+  padding: 40px 20px 92px 20px;
+}
+
+.library-header-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.library-header-button {
+  width: 130px;
+  height: 44px;
+  border-radius: 5%;
+  color: $white;
+  font-family: $main-font;
+  font-size: 12px;
+}
+
+.watched {
+  background-color: transparent;
+  border: 1px solid $white;
+}
+
+.queue {
+  background-color: $flush-orange;
+}
+
+@media (min-device-pixel-ratio: 2),
+  (min-resolution: 192dpi),
+  (min-resolution: 2dppx) {
+  .header-library {
+    background-image: url('./../images/mobile-logged-bg@2x.jpg');
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .header-library {
+    background-image: url('./../images/tablet-logged-bg.jpg');
+    padding: 40px 32px 81px 32px;
+  }
+
+  @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    .header-library {
+      background-image: url('./../images/tablet-logged-bg@2x.jpg');
+    }
+  }
+
+  .library-header-buttons {
+    gap: 32px;
+  }
+
+  .library-header-button {
+    width: 152px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .header-library {
+    background-image: url('./../images/desktop-logged-bg.jpg');
+  }
+
+  @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    .header-library {
+      background-image: url('./../images/desktop-logged-bg@2x.jpg');
+    }
+  }
+
+  .library-header-buttons {
+    gap: 16px;
+  }
+
+  .library-header-button {
+    width: 148px;
+    height: 42px;
+  }
+}

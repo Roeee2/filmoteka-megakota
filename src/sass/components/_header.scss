@@ -1,47 +1,126 @@
 .header-logo-text {
   display: none;
 }
+
 .header {
   background-color: #c4c4c4;
-  background-image: url(https://s3-alpha-sig.figma.com/img/89fe/98ac/249d9ce8c5d0823ae112491e5627c631?Expires=1716768000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=KPOdq8oUESI6KpuCZMONnO703ikpQuzfDgPLZGbawglEU1mUuAtk~neE~DnfnM2BUM4u0w0IgXU3iXgLT70MOgcoiM9RtwkVZNoeHo2A4asJyCPBX1VWH4vef8ZSXbP85QRCEQtCfr-c7Ygqf4FTCnd6rejMzvkimFdlQXU3JvexS1svrXaAtTkyKPFyCBEsVGuPFd9MLHW9Hd9iAWq3yfeqkcm5x4SZaiKSSXnZ~bsKoOU~K~KHSpMjzFzIDtu43oKijd3rW8ZtuiMBgU8yZG9DNOu46Fxtwn07iXfb6l3P6hmJEI7ZorTLOCzNSOgV4ZM7My2xTC4IU84By1smCw__);
+  background-image: url('./../images/mobile-main-bg.jpg');
   background-repeat: no-repeat;
   background-position: 50%, 50%;
   background-size: cover;
+  padding: 40px 20px 92px 20px;
 }
+
+@media (min-device-pixel-ratio: 2),
+  (min-resolution: 192dpi),
+  (min-resolution: 2dppx) {
+  .header {
+    background-image: url('./../images/mobile-main-bg@2x.jpg');
+  }
+}
+
 .header-flex {
   display: flex;
-  margin: 40px 20px 92px;
   min-height: 98px;
 }
+
 .header-nav {
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
   margin-bottom: 57px;
 }
+
 .header-menu-list {
   display: flex;
   gap: 40px;
 }
+
 .header-menu-list-element {
   font-family: $main-font;
   font-size: 12px;
   text-align: center;
-  font-weight: 600;
+  font-weight: 500;
+  color: white;
 }
+
 .header-logo-icon {
   fill: none;
   stroke: white;
 }
+
 .movie-searcher-icon {
   fill: none;
   stroke: white;
 }
+
 .movie-searcher {
   display: flex;
   justify-content: center;
 }
+
 .movie-searcher-form {
   display: flex;
   justify-content: space-between;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: white;
+  min-width: 280px;
+}
+
+.movie-searcher-input {
+  background-color: transparent;
+  width: 100%;
+}
+
+.logo-div {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  gap: 8px;
+  padding-top: 5px;
+  padding-bottom: 6px;
+}
+
+@media screen and (min-width: 768px) {
+  .header {
+    background-image: url('./../images/tablet-main-bg.jpg');
+    padding: 40px 32px 81px 32px;
+  }
+  @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    .header {
+      background-image: url('./../images/tablet-main-bg@2x.jpg');
+    }
+  }
+
+  .header-logo-text {
+    display: inline-block;
+    color: white;
+    font-family: $main-font;
+    font-size: 30px;
+    font-weight: 500;
+  }
+
+  .movie-searcher-form {
+    min-width: 336px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .header {
+    background-image: url('./../images/desktop-main-bg.jpg');
+  }
+
+  @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    .header {
+      background-image: url('./../images/desktop-main-bg@2x.jpg');
+    }
+  }
+
+  .movie-searcher-form {
+    min-width: 394px;
+  }
 }

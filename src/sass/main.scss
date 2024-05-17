@@ -2,8 +2,9 @@
 @import './utils/_globals.scss';
 @import './utils/_mixins.scss';
 @import './utils/_vars.scss';
-@import './components/example';
-@import './components/home';
 @import './components/header';
+@import './components/header-library';
+@import './components/home';
 @import './components/footer.scss';
 @import './components/modal.scss';
+@import './components/example';
