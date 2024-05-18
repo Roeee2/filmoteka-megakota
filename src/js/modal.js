@@ -7,22 +7,20 @@ document.addEventListener('DOMContentLoaded', () => {
   const openModal = () => {
     if (modal) {
       modal.classList.remove('is-hidden');
+      document.body.style.overflow = 'hidden'; // Disable background scroll
       const backdrop = document.querySelector('.backdrop');
       backdrop.addEventListener('click', closeModalOutside);
       document.addEventListener('keydown', closeModalOnEscKey);
-      modal.style.overflow = 'auto';
-      document.body.style.overflow = 'hidden';
     }
   };
 
   const closeModal = () => {
     if (modal) {
       modal.classList.add('is-hidden');
+      document.body.style.overflow = ''; // Re-enable background scroll
       const backdrop = document.querySelector('.backdrop');
       backdrop.removeEventListener('click', closeModalOutside);
       document.removeEventListener('keydown', closeModalOnEscKey);
-      modal.style.overflow = 'hidden';
-      document.body.style.overflow = 'auto';
     }
   };
 
