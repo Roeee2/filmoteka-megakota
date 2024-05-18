@@ -22,15 +22,14 @@
   color: $white;
   font-family: $main-font;
   font-size: 12px;
-}
-
-.watched {
   background-color: transparent;
   border: 1px solid $white;
 }
 
-.queue {
+.library-header-button:hover,
+.library-header-button:focus {
   background-color: $flush-orange;
+  border: none;
 }
 
 @media (min-device-pixel-ratio: 2),

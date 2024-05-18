@@ -80,6 +80,13 @@
   padding-top: 5px;
   padding-bottom: 6px;
 }
+a.active::after {
+  content: '';
+  height: 3px;
+  width: 34px;
+  background-color: $errors;
+  position: absolute;
+}
 
 @media screen and (min-width: 768px) {
   .header {
