@@ -33,14 +33,14 @@ export async function drawMovies(results, page, totalPages) {
   const galleryElement = document.querySelector('.gallery-cards');
   galleryElement.innerHTML = '';
   for (const result of results) {
-    const { poster_path, original_title, genre_ids, release_date } = result;
+    const { id, poster_path, original_title, genre_ids, release_date } = result;
 
     const getReleaseYear = release_date.split('-')[0];
     const genres = await makeGenresString(genre_ids);
     const filmCard = `
-        <li class="film-card" id="film-card">
+        <li class="film-card" id="film-card-${id}">
           <div class="film-cover">
-            <img class="film-img" src="https://image.tmdb.org/t/p/original${poster_path}" alt="${original_title}">
+            <img class="film-img" id="film-${id}" src="https://image.tmdb.org/t/p/original${poster_path}" alt="${original_title}">
           </div>
           <div class="film-desc">
             <p class="card-film-title">${original_title}</p>
@@ -48,6 +48,11 @@ export async function drawMovies(results, page, totalPages) {
           </div>
         </li>`;
     galleryElement.insertAdjacentHTML('beforeend', filmCard);
-    createPagination(page, totalPages, 'popularMovies');
+
+    const imgElement = document.getElementById(`film-${id}`);
+    imgElement.addEventListener('click', () => {
+      console.log(`Movie ID ${id} clicked`);
+    });
   }
+  createPagination(page, totalPages, 'popularMovies');
 }
