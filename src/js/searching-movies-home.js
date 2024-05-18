@@ -25,6 +25,6 @@ document.addEventListener('DOMContentLoaded', function () {
       searchMovie(valueInput);
     });
   } else {
-    console.error("Element with ID 'input-movie' not found.");
+    // console.error("Element with ID 'input-movie' not found.");
   }
 });
