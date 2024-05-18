@@ -31,17 +31,16 @@ document.addEventListener('DOMContentLoaded', () => {
       const backdrop = document.querySelector('.backdrop');
       backdrop.removeEventListener('click', closeModalOutside);
       window.removeEventListener('keydown', closeModalOnEscKey);
-
     }
   };
 
   const closeModalOnEscKey = event => {
     window.addEventListener('keydown', function (event) {
-      if (event.key === "Escape") {
+      if (event.key === 'Escape') {
         closeModal();
       }
-    })
-  }; 
+    });
+  };
 
   const closeModalOutside = event => {
     const modalContent = document.querySelector('.modal-content');
@@ -80,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const descriptionElement = document.getElementById('film-description');
     const descriptionParts = filmData.description.split('ABOUT');
-    descriptionElement.innerHTML = `ABOUT<p>${descriptionParts[1].trim()}</p>`;
+    descriptionElement.innerHTML = `<h3>ABOUT</h3><p>${descriptionParts[1].trim()}</p>`;
   }
 
   function addToWatched() {

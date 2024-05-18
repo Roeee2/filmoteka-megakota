@@ -158,17 +158,46 @@
   }
 }
 
-.film-details {
-  line-height: 1.33;
-  margin-bottom: 8px;
-  color: $modal-info;
+.film-info {
+  display: grid;
+  grid-template-columns: max-content 1fr; /* First column adjusts to dt content, second column takes remaining space */
+  gap: 20px; /* Adds space between dt and dd columns */
+  align-items: start; /* Align items to the start for consistency */
+}
+
+.film-info dl {
+  display: contents; /* Ensure dl elements don't interfere with grid layout */
+}
+
+.film-info dt,
+.film-info dd {
+  margin: 0; /* Reset margins for consistency */
+}
+
+.film-info dt {
+  grid-column: 1; /* Place dt elements in the first column */
+}
+
+.film-info dd {
+  grid-column: 2; /* Place dd elements in the second column */
+}
+
+/* Specific styling for the dd-container within the votes section */
+.dd-container {
+  display: flex; /* Align multiple dd elements in a row */
+  grid-column: 2; /* Ensure the container is placed in the second column */
+}
+
+.film-details-container h3 {
+  margin: 20px 0 8px 0;
+  font-weight: 500;
+  font-size: 12px;
 }
 
 .text-modal {
   line-height: 1.66;
   color: $black;
-  margin-top: 10px;
-  text-align: justify;
+  text-align: left;
 }
 
 .modal-buttons {
