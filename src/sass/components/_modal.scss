@@ -160,32 +160,50 @@
 
 .film-info {
   display: grid;
-  grid-template-columns: max-content 1fr; /* First column adjusts to dt content, second column takes remaining space */
-  gap: 20px; /* Adds space between dt and dd columns */
-  align-items: start; /* Align items to the start for consistency */
+  grid-template-columns: max-content 1fr;
+  align-items: start;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
 }
 
 .film-info dl {
-  display: contents; /* Ensure dl elements don't interfere with grid layout */
+  display: contents;
 }
 
 .film-info dt,
 .film-info dd {
-  margin: 0; /* Reset margins for consistency */
+  margin: 0;
+  padding: 0;
 }
 
 .film-info dt {
-  grid-column: 1; /* Place dt elements in the first column */
+  grid-column: 1;
+  color: $modal-info;
 }
 
 .film-info dd {
-  grid-column: 2; /* Place dd elements in the second column */
+  grid-column: 2;
+  color: $black;
 }
 
-/* Specific styling for the dd-container within the votes section */
 .dd-container {
-  display: flex; /* Align multiple dd elements in a row */
-  grid-column: 2; /* Ensure the container is placed in the second column */
+  display: flex;
+  grid-column: 2;
+  gap: 3px;
+}
+
+.dd-container dd:first-child {
+  color: $white;
+  background-color: $flush-orange;
+  border-radius: 4px;
+  text-align: center;
+  width: 30px;
+  height: 16px;
+}
+
+.dd-container .votes-divider {
+  color: $modal-info;
 }
 
 .film-details-container h3 {
