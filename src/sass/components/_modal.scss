@@ -287,6 +287,11 @@
   @include desktop {
     width: 136px;
   }
+
+  @include smallmob {
+    font-size: 10px;
+    padding: 5px;
+  }
 }
 
 .modal-buttons button:hover {
