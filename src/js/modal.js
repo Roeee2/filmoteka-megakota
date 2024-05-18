@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const backdrop = document.querySelector('.backdrop');
       backdrop.addEventListener('click', closeModalOutside);
       document.addEventListener('keydown', closeModalOnEscKey);
+      modal.style.overflow = 'auto';
       document.body.style.overflow = 'hidden';
     }
   };
@@ -20,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const backdrop = document.querySelector('.backdrop');
       backdrop.removeEventListener('click', closeModalOutside);
       document.removeEventListener('keydown', closeModalOnEscKey);
+      modal.style.overflow = 'hidden';
       document.body.style.overflow = 'auto';
     }
   };
