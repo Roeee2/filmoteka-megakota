@@ -33,12 +33,12 @@ export async function drawMovies(results, page, totalPages) {
   const galleryElement = document.querySelector('.gallery-cards');
   galleryElement.innerHTML = '';
   for (const result of results) {
-    const { poster_path, original_title, genre_ids, release_date, id } = result;
+    const { poster_path, original_title, genre_ids, release_date } = result;
 
     const getReleaseYear = release_date.split('-')[0];
     const genres = await makeGenresString(genre_ids);
     const filmCard = `
-        <li data-id="${id}" class="film-card" id="film-card">
+        <li class="film-card" id="film-card">
           <div class="film-cover">
             <img class="film-img" src="https://image.tmdb.org/t/p/original${poster_path}" alt="${original_title}">
           </div>
@@ -49,16 +49,5 @@ export async function drawMovies(results, page, totalPages) {
         </li>`;
     galleryElement.insertAdjacentHTML('beforeend', filmCard);
     createPagination(page, totalPages, 'popularMovies');
-  }
-}
-
-export async function getFilmData(filmId) {
-  try {
-    const response  = await axios.get(`https://api.themoviedb.org/3/movie/${filmId}?api_key=${apiKey}`)
-    console.log(response.data);
-    return response.data;
-  } catch (error) {
-    Notiflix.Notify.failure('Error while fetching film info', error);
-    return [];
   }
 }
