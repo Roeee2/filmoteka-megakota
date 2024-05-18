@@ -1,16 +1,4 @@
-const filmData = {
-  cover: '../images/film@1x.jpg',
-  title: 'A FISTFUL OF LEAD',
-  votes: '7.3 1260',
-  popularity: '100.2',
-  originalTitle: 'A FISTFUL OF LEAD',
-  genre: 'Western',
-  description:
-    "ABOUT  Four of the West's most infamous outlaws assemble to steal a huge stash of gold from the most corrupt settlement of the gold rush towns. But not all goes to plan one is killed and the other three escapes with bags of gold hide out in the abandoned gold mine where they happen across another gang of three – who themselves were planning to hit the very same bank! As tensions rise, things go from bad to worse as they realise the bags of gold are filled with lead... they've been double crossed – but by who and how?",
-};
-
-const modal = document.getElementById('filmModal');
-const galleryList = document.querySelector('ul.gallery-cards');
+import { getFilmData } from './common';
 
 document.addEventListener('DOMContentLoaded', () => {
   const modal = document.getElementById('filmModal');
@@ -31,17 +19,15 @@ document.addEventListener('DOMContentLoaded', () => {
       modal.classList.add('is-hidden');
       const backdrop = document.querySelector('.backdrop');
       backdrop.removeEventListener('click', closeModalOutside);
-      window.removeEventListener('keydown', closeModalOnEscKey);
+      document.removeEventListener('keydown', closeModalOnEscKey);
       document.body.style.overflow = 'auto';
     }
   };
 
   const closeModalOnEscKey = event => {
-    window.addEventListener('keydown', function (event) {
-      if (event.key === 'Escape') {
-        closeModal();
-      }
-    });
+    if (event.key === 'Escape') {
+      closeModal();
+    }
   };
 
   const closeModalOutside = event => {
@@ -56,41 +42,49 @@ document.addEventListener('DOMContentLoaded', () => {
     closeButton.onclick = closeModal;
   }
 
-  galleryList.addEventListener('click', ev => {
-    filmData.cover = ev.target.src;
-    updateModalContent(filmData);
-    openModal();
+  galleryList.addEventListener('click', async ev => {
+    if (ev.target.tagName === 'IMG') {
+      const filmId = ev.target.id.split('-')[1];
+      const filmInfo = await getFilmData(filmId);
+
+      if (filmInfo) {
+        updateModalContent(filmInfo);
+        openModal();
+      }
+    }
   });
 
-  function updateModalContent(filmData) {
-    document.getElementById('cover-image').src = filmData.cover;
-    document.getElementById('movie-title').innerText = filmData.title;
+  const updateModalContent = filmData => {
+    document.getElementById(
+      'cover-image'
+    ).src = `https://image.tmdb.org/t/p/original${filmData.poster_path}`;
+    document.getElementById('movie-title').innerText = filmData.original_title;
 
-    const votesElement = document.getElementById('film-votes');
-    const votesSecondaryElement = document.getElementById(
-      'film-votes-secondary'
+    document.getElementById('film-votes').innerText =
+      filmData.vote_average.toFixed(1);
+    document.getElementById('film-votes-secondary').innerText =
+      filmData.vote_count;
+    document.getElementById('film-popularity').innerText = Math.round(
+      filmData.popularity
     );
-    const votesInfo = filmData.votes.split(' ');
-    votesElement.innerText = votesInfo[0];
-    votesSecondaryElement.innerText = votesInfo[1] || 'N/A';
-
-    document.getElementById('film-popularity').innerText = filmData.popularity;
     document.getElementById('film-original-title').innerText =
-      filmData.originalTitle;
-    document.getElementById('film-genre').innerText = filmData.genre;
+      filmData.original_title;
+    document.getElementById('film-genre').innerText = filmData.genres
+      .map(g => g.name)
+      .join(', ');
 
-    const descriptionElement = document.getElementById('film-description');
-    const descriptionParts = filmData.description.split('ABOUT');
-    descriptionElement.innerHTML = `<h3>ABOUT</h3><p>${descriptionParts[1].trim()}</p>`;
-  }
+    document.getElementById(
+      'film-description'
+    ).innerHTML = `<h3>ABOUT</h3><p>${filmData.overview}</p>`;
+  };
 
-  function addToWatched() {
-    console.log('Dodano do obejrzanych');
-  }
+  const addToWatched = () => {
+    console.log('Added to watched');
+  };
 
-  function addToQueue() {
-    console.log('Dodano do kolejki');
-  }
+  const addToQueue = () => {
+    console.log('Added to queue');
+  };
 
   const watchedButton = document.querySelector(
     '.modal-buttons button:nth-child(1)'
@@ -107,3 +101,28 @@ document.addEventListener('DOMContentLoaded', () => {
     queueButton.onclick = addToQueue;
   }
 });
+
+export async function drawMovies(results, page, totalPages) {
+  const galleryElement = document.querySelector('.gallery-cards');
+  galleryElement.innerHTML = '';
+
+  for (const result of results) {
+    const { id, poster_path, original_title, genre_ids, release_date } = result;
+
+    const getReleaseYear = release_date.split('-')[0];
+    const genres = await makeGenresString(genre_ids);
+    const filmCard = `
+        <li class="film-card" id="film-card-${id}">
+          <div class="film-cover">
+            <img class="film-img" id="film-${id}" src="https://image.tmdb.org/t/p/original${poster_path}" alt="${original_title}">
+          </div>
+          <div class="film-desc">
+            <p class="card-film-title">${original_title}</p>
+            <p class="film-info">${genres} | ${getReleaseYear}</p>
+          </div>
+        </li>`;
+    galleryElement.insertAdjacentHTML('beforeend', filmCard);
+  }
+
+  createPagination(page, totalPages, 'popularMovies');
+}

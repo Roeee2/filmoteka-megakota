@@ -205,12 +205,14 @@
   display: flex;
   grid-column: 2;
   gap: 3px;
+  align-items: center;
 }
 
 .dd-container dd:first-child {
   color: $white;
   background-color: $flush-orange;
-  border-radius: 4px;
+  padding: 10px 22px;
+  border-radius: 8px;
   text-align: center;
   width: 30px;
   height: 16px;

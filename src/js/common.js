@@ -29,13 +29,27 @@ const makeGenresString = async array => {
   }
 };
 
+export async function getFilmData(filmId) {
+  try {
+    const response = await axios.get(
+      `https://api.themoviedb.org/3/movie/${filmId}?api_key=${apiKey}`
+    );
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching film data:', error);
+    return null;
+  }
+}
+
 export async function drawMovies(results, page, totalPages) {
   const galleryElement = document.querySelector('.gallery-cards');
   galleryElement.innerHTML = '';
   for (const result of results) {
     const { id, poster_path, original_title, genre_ids, release_date } = result;
 
-    const getReleaseYear = release_date.split('-')[0];
+    const getReleaseYear = release_date
+      ? release_date.split('-')[0]
+      : 'Unknown';
     const genres = await makeGenresString(genre_ids);
     const filmCard = `
         <li class="film-card" id="film-card-${id}">
@@ -50,9 +64,6 @@ export async function drawMovies(results, page, totalPages) {
     galleryElement.insertAdjacentHTML('beforeend', filmCard);
 
     const imgElement = document.getElementById(`film-${id}`);
-    imgElement.addEventListener('click', () => {
-      console.log(`Movie ID ${id} clicked`);
-    });
   }
   createPagination(page, totalPages, 'popularMovies');
 }
