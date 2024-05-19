@@ -101,11 +101,11 @@
   fill: $modal-info;
 }
 
-.img-container {
+.modal-content .img-container {
   margin: 28px auto 0;
   padding: 0;
-  min-width: 240px;
-  min-height: 357px;
+  width: 240px;
+  height: 357px;
 
   @include tablet {
     width: 264px;
