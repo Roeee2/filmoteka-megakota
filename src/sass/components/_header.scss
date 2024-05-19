@@ -2,8 +2,11 @@
   display: none;
 }
 
-.header {
-  background-color: #c4c4c4;
+.head-bg {
+  background-color: $white;
+}
+
+.head {
   background-image: url('./../images/mobile-main-bg.jpg');
   background-repeat: no-repeat;
   background-position: 50%, 50%;
@@ -14,7 +17,7 @@
 @media (min-device-pixel-ratio: 2),
   (min-resolution: 192dpi),
   (min-resolution: 2dppx) {
-  .header {
+  .head {
     background-image: url('./../images/mobile-main-bg@2x.jpg');
   }
 }
