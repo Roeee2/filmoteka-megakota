@@ -1,19 +1,42 @@
 .head-lib-bg {
   background-color: $white;
 }
+
 .head-lib {
   background-image: url('./../images/mobile-logged-bg.jpg');
   background-repeat: no-repeat;
   background-position: 50%, 50%;
   background-size: cover;
   padding: 40px 20px 92px 20px;
-}
 
-@media (min-device-pixel-ratio: 2),
-  (min-resolution: 192dpi),
-  (min-resolution: 2dppx) {
-  .head-lib {
+  @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
     background-image: url('./../images/mobile-logged-bg@2x.jpg');
+  }
+
+  @include tablet {
+    @media (min-width: 768px) and (max-width: 1024px) {
+      background-image: url('./../images/tablet-logged-bg.jpg');
+
+      @media (min-device-pixel-ratio: 2),
+        (min-resolution: 192dpi),
+        (min-resolution: 2dppx) {
+        background-image: url('./../images/tablet-logged-bg@2x.jpg');
+      }
+    }
+  }
+
+  @include desktop {
+    @media (min-width: 1025px) {
+      background-image: url('./../images/desktop-logged-bg.jpg');
+
+      @media (min-device-pixel-ratio: 2),
+        (min-resolution: 192dpi),
+        (min-resolution: 2dppx) {
+        background-image: url('./../images/desktop-logged-bg@2x.jpg');
+      }
+    }
   }
 }
 

@@ -12,13 +12,35 @@
   background-position: 50%, 50%;
   background-size: cover;
   padding: 40px 20px 92px 20px;
-}
 
-@media (min-device-pixel-ratio: 2),
-  (min-resolution: 192dpi),
-  (min-resolution: 2dppx) {
-  .head {
+  @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
     background-image: url('./../images/mobile-main-bg@2x.jpg');
+  }
+
+  @include tablet {
+    @media (min-width: 768px) and (max-width: 1024px) {
+      background-image: url('./../images/tablet-main-bg.jpg');
+
+      @media (min-device-pixel-ratio: 2),
+        (min-resolution: 192dpi),
+        (min-resolution: 2dppx) {
+        background-image: url('./../images/tablet-main-bg@2x.jpg');
+      }
+    }
+  }
+
+  @include desktop {
+    @media (min-width: 1025px) {
+      background-image: url('./../images/desktop-main-bg.jpg');
+
+      @media (min-device-pixel-ratio: 2),
+        (min-resolution: 192dpi),
+        (min-resolution: 2dppx) {
+        background-image: url('./../images/desktop-main-bg@2x.jpg');
+      }
+    }
   }
 }
 
