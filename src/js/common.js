@@ -1,6 +1,7 @@
 import { createPagination } from './pagination';
 import Notiflix from 'notiflix';
 import axios from 'axios';
+export { makeGenresString, searchMovie };
 
 const apiKey = '91f5af2219e63824428db203e9d0f8bf';
 
@@ -14,6 +15,18 @@ const getGenres = async () => {
     return [];
   }
 };
+
+async function searchMovie(query, page = 1) {
+  try {
+    const response = await axios.get(
+      `https://api.themoviedb.org/3/search/movie?query=${query}&adult=false&api_key=${apiKey}`
+    );
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching film data:', error);
+    return null;
+  }
+}
 
 const makeGenresString = async array => {
   try {

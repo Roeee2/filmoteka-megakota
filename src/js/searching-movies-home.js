@@ -1,30 +1,43 @@
-document.addEventListener('DOMContentLoaded', function () {
-  const options = {
-    method: 'GET',
-    headers: {
-      accept: 'application/json',
-      Authorization:
-        'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyZTZlMDQwYzc3MTI4ZDYyNjJlODg5ZmUzZjY0MjZkYiIsInN1YiI6IjY2NDFjNjU4OTJkNzFkMjc0NWMxOWNjYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.JkUujFTHumJrJUsJqtxU3nDAX4Q4nDga6Q53jbgPY88',
-    },
-  };
+import { makeGenresString } from "./common";
+import { searchMovie } from "./common";
+import Notiflix from "notiflix";
 
-  function searchMovie(query) {
-    fetch(
-      `https://api.themoviedb.org/3/search/movie?query=${query}&include_adult=false&language=en-US&page=1`,
-      options
-    )
-      .then(response => response.json())
-      .then(response => console.log(response))
-      .catch(err => console.error(err));
-  }
+const searchForm = document.querySelector('.movie-searcher-form');
+const gallery = document.querySelector('.gallery-cards');
 
-  const inputElement = document.querySelector('#input-movie');
-  if (inputElement) {
-    inputElement.addEventListener('blur', function (event) {
-      const valueInput = event.target.value;
-      searchMovie(valueInput);
-    });
-  } else {
-    // console.error("Element with ID 'input-movie' not found.");
-  }
-});
+searchForm.addEventListener('submit', event => {
+event.preventDefault();
+const queryInput = document.querySelector('.movie-searcher-input')
+const query = queryInput.value;
+if (!query) {
+  Notiflix.Notify.info('Please enter a movie name.');
+  return;
+}
+console.log(query)
+gallery.innerHTML = '';
+page = 1;
+searchMovie(query, page)
+.then(async (response) => {
+const results = response.results;
+for (const result of results) {
+  const { id, poster_path, original_title, genre_ids, release_date } = result;
+  const getReleaseYear = release_date
+      ? release_date.split('-')[0]
+      : 'Unknown';
+  const genres = await makeGenresString(genre_ids);
+  const filmCard = `
+        <li class="film-card" id="film-card-${id}">
+          <div class="film-cover">
+            <img class="film-img" id="film-${id}" 
+            src="https://image.tmdb.org/t/p/original${poster_path}" 
+            alt="${original_title}">
+          </div>
+          <div class="film-desc">
+            <p class="card-film-title">${original_title}</p>
+            <p class="film-info">${genres} | ${getReleaseYear}</p>
+          </div>
+        </li>`;
+        gallery.insertAdjacentHTML('beforeend', filmCard);
+}
+})
+})
