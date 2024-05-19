@@ -1,0 +1,153 @@
+@use './../utils/globals' as *;
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: $backdrop-bg;
+  z-index: 1;
+  transition-property: transform, opacity, visibility;
+  transition: $standard;
+}
+
+.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.logon-modal {
+  position: fixed;
+  overflow-y: auto;
+  top: 50%;
+  left: 50%;
+  padding: 0px;
+  margin: 0px;
+  transform: translate(-50%, -50%) scale(1);
+  width: 280px;
+  height: 940px;
+  max-height: 90%;
+  max-width: 90%;
+  transition: transform $standard;
+
+  @include tablet {
+    width: 704px;
+    height: 552px;
+  }
+
+  @include desktop {
+    width: 806px;
+    height: 558px;
+  }
+
+  @include smallmob {
+    width: 80%;
+  }
+}
+
+.logon-modal-content {
+  box-sizing: content-box;
+  background-color: $white;
+  margin: 0;
+  padding: 20px 20px 50px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 280px;
+  max-height: 940px;
+
+  @include tablet {
+    margin: 0;
+    padding: 40px 36px;
+    flex-direction: row;
+    max-width: 704px;
+    max-height: 552px;
+  }
+
+  @include desktop {
+    margin: 0;
+    padding: 40px 12px;
+    flex-direction: row;
+    max-width: 806px;
+    max-height: 558px;
+  }
+}
+
+.icon-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  transition: fill $standard;
+  fill: $black;
+
+  @include tablet {
+    width: 26px;
+    height: 26px;
+  }
+
+  @include desktop {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+.icon-close:hover,
+.icon-close:focus {
+  fill: $modal-info;
+}
+
+.logon-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin: 20px 0 0 0;
+  padding: 0;
+
+  @include tablet {
+    justify-content: left;
+  }
+
+  @include desktop {
+    margin-left: 8px;
+  }
+
+  @include smallmob {
+    max-width: 80%;
+  }
+}
+
+.logon-buttons button {
+  line-height: 1.33333;
+  text-transform: uppercase;
+  background-color: transparent;
+  border: 1px solid $black;
+  border-radius: 5px;
+  color: $black;
+  width: 110px;
+  height: 44px;
+  transition: background-color $standard;
+
+  @include tablet {
+    width: 125px;
+  }
+
+  @include desktop {
+    width: 136px;
+  }
+
+  @include smallmob {
+    font-size: 10px;
+    padding: 5px;
+  }
+}
+
+.logon-buttons button:hover {
+  background: $flush-orange;
+  color: $white;
+  border: none;
+}
