@@ -40,17 +40,53 @@
   font-size: 12px;
   text-align: center;
   font-weight: 500;
-  color: white;
+  color: $white;
+  transition-property: color;
+  transition: $standard;
+}
+
+.header-menu-list-element:hover,
+.header-menu-list-element:focus {
+  color: $marker;
+}
+
+.header-menu-list-element-active {
+  color: $marker;
+}
+
+.header-menu-list-element-active::after {
+  content: '';
+  justify-content: center;
+  height: 3px;
+  width: 100%;
+  background-color: $errors;
+  display: flex;
+  transform: translateY(3px);
+  transition-property: background-color;
+  transition: $standard;
+}
+
+.header-menu-list-element:hover::after,
+.header-menu-list-element:focus::after {
+  content: '';
+  justify-content: center;
+  height: 3px;
+  width: 100%;
+  background-color: $errors;
+  display: flex;
+  transform: translateY(3px);
+  transition-property: background-color;
+  transition: $standard;
 }
 
 .header-logo-icon {
   fill: none;
-  stroke: white;
+  stroke: $white;
 }
 
 .movie-searcher-icon {
   fill: none;
-  stroke: white;
+  stroke: $white;
 }
 
 .movie-searcher {
@@ -80,22 +116,6 @@
   padding-top: 5px;
   padding-bottom: 6px;
 }
-a.active::after {
-  content: '';
-  height: 3px;
-  width: 34px;
-  background-color: $errors;
-  position: absolute;
-  transform: translate(-34px, 14px);
-}
-// .header-menu-link:hover::after {
-//   content: '';
-//   height: 3px;
-//   width: 34px;
-//   background-color: $errors;
-//   position: absolute;
-//   transform: translate(-34px, 14px);
-// }
 
 @media screen and (min-width: 768px) {
   .header {
