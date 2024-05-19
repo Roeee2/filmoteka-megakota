@@ -63,7 +63,7 @@
   justify-content: space-between;
   border-bottom-width: 1px;
   border-bottom-style: solid;
-  border-bottom-color: white;
+  border-bottom-color: $white;
   min-width: 280px;
 }
 
@@ -86,7 +86,16 @@ a.active::after {
   width: 34px;
   background-color: $errors;
   position: absolute;
+  transform: translate(-34px, 14px);
 }
+// .header-menu-link:hover::after {
+//   content: '';
+//   height: 3px;
+//   width: 34px;
+//   background-color: $errors;
+//   position: absolute;
+//   transform: translate(-34px, 14px);
+// }
 
 @media screen and (min-width: 768px) {
   .header {
