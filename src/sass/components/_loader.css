@@ -1,19 +1,25 @@
+@charset "UTF-8";
 .loader {
-  border: 8px solid #f3f3f3; /* Kolor tła */
-  border-top: 8px solid #3498db; /* Kolor wskaźnika ładowania */
+  border: 8px solid #f3f3f3;
+  /* Kolor tła */
+  border-top: 8px solid #3498db;
+  /* Kolor wskaźnika ładowania */
   border-radius: 50%;
   width: 50px;
   height: 50px;
-  animation: spin 1s linear infinite; /* Animacja obrotu */
+  animation: spin 1s linear infinite;
+  /* Animacja obrotu */
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 1000; /* Aby był na wierzchu */
+  z-index: 1000;
+  /* Aby był na wierzchu */
 }
 
 .hidden {
-  display: none; /* Ukrywa spinner */
+  display: none;
+  /* Ukrywa spinner */
 }
 
 @keyframes spin {
@@ -23,7 +29,6 @@
   100% {
     transform: rotate(360deg);
   }
-
   0%,
   100% {
     box-shadow: 0.2em 0px 0 0px currentcolor;
