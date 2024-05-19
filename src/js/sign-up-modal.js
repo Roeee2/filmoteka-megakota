@@ -1,4 +1,4 @@
-const signupButton = document.getElementById("signup");
+const signupButton = document.getElementById("signup-menu");
 const signupModal = document.getElementById("signupModal");
 const signupModalCloseButton = document.getElementById("signupModalCloseButton");
 

@@ -1,8 +1,8 @@
-const loginButton = document.getElementById("login");
+const loginMenuButton = document.getElementById("login-menu");
 const loginModal = document.getElementById("loginModal");
 const loginModalCloseButton = document.getElementById("loginModalCloseButton");
 
-loginButton.addEventListener("click", () => {
+loginMenuButton.addEventListener("click", () => {
     loginModal.classList.remove('is-hidden');
 })
 
