@@ -144,6 +144,14 @@
 .movie-searcher-input {
   background-color: transparent;
   width: 100%;
+  border: none;
+  padding-bottom: 3px;
+  color: white;
+  font-size: 14px;
+}
+
+.movie-searcher-input:focus {
+  outline-width: 0;
 }
 
 .logo-div {

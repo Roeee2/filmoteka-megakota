@@ -15,8 +15,8 @@ if (!query) {
 }
 console.log(query)
 gallery.innerHTML = '';
-page = 1;
-searchMovie(query, page)
+// page = 1;
+searchMovie(query)
 .then(async (response) => {
 const results = response.results;
 for (const result of results) {
