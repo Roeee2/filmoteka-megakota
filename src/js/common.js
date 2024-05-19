@@ -17,7 +17,7 @@ const getGenres = async() => {
     }
 };
 
-async function searchMovie(query, page = 1) {
+async function searchMovie(query) {
   try {
     const response = await axios.get(
       `https://api.themoviedb.org/3/search/movie?query=${query}&adult=false&api_key=${apiKey}`
