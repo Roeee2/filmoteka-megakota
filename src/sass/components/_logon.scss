@@ -1,6 +1,6 @@
 @use './../utils/globals' as *;
 
-.backdrop {
+.backdrop2 {
   position: fixed;
   top: 0;
   left: 0;
@@ -12,7 +12,7 @@
   transition: $standard;
 }
 
-.is-hidden {
+.is-hidden2 {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;

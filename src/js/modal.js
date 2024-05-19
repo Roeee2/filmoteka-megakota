@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const closeModalOutside = event => {
-    const modalContent = document.querySelector('.modal-content');
+    const modalContent = document.querySelector('.modal');
     if (!modalContent.contains(event.target)) {
       closeModal();
     }
