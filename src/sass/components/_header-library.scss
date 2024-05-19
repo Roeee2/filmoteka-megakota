@@ -28,7 +28,7 @@
   }
 
   @include desktop {
-    @media (min-width: 1025px) {
+    @media (min-width: 1200px) {
       background-image: url('./../images/desktop-logged-bg.jpg');
 
       @media (min-device-pixel-ratio: 2),

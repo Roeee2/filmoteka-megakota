@@ -32,7 +32,7 @@
   }
 
   @include desktop {
-    @media (min-width: 1025px) {
+    @media (min-width: 1200px) {
       background-image: url('./../images/desktop-main-bg.jpg');
 
       @media (min-device-pixel-ratio: 2),
@@ -55,9 +55,21 @@
   margin-bottom: 57px;
 }
 
+.header-menu {
+  display: flex;
+  align-items: center;
+}
 .header-menu-list {
   display: flex;
-  gap: 40px;
+  gap: 15px;
+
+  @include tablet {
+    gap: 30px;
+  }
+
+  @include desktop {
+    gap: 40px;
+  }
 }
 
 .header-menu-list-element {
@@ -136,7 +148,7 @@
 .logo-div {
   display: flex;
   justify-content: flex-start;
-  align-items: flex-end;
+  align-items: center;
   gap: 8px;
   padding-top: 5px;
   padding-bottom: 6px;
@@ -161,6 +173,7 @@
     font-family: $main-font;
     font-size: 30px;
     font-weight: 500;
+    margin-left: 10px;
   }
 
   .movie-searcher-form {
