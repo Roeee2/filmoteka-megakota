@@ -9,6 +9,10 @@
   text-align: center;
 }
 
+.footer-margin {
+  margin-bottom: 8px;
+}
+
 .footer-icon {
   fill: $flush-orange;
   // stroke: black;
@@ -27,5 +31,8 @@
     font-size: 16px;
     padding-top: 30px;
     padding-bottom: 30px;
+  }
+  .footer-margin {
+    margin-bottom: 0;
   }
 }
