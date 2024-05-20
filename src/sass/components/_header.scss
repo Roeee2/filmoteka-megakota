@@ -148,8 +148,13 @@
   width: 100%;
   border: none;
   padding-bottom: 3px;
-  color: white;
+  color: $white;
   font-size: 14px;
+}
+
+.movie-searcher-input::placeholder {
+  color: $white;
+  opacity: 1;
 }
 
 .movie-searcher-input:focus {
@@ -180,7 +185,7 @@
 
   .header-logo-text {
     display: inline-block;
-    color: white;
+    color: $white;
     font-family: $main-font;
     font-size: 30px;
     font-weight: 500;

@@ -51,7 +51,7 @@
 
   @include desktop {
     margin: 0;
-    padding: 80px 12px;
+    padding: 100px 12px 60px 12px;
     flex-direction: row;
     max-width: 806px;
     max-height: 558px;
@@ -116,6 +116,25 @@
   gap: 10px;
 }
 
+.logon-logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.logo-icon {
+  vertical-align: middle;
+  fill: none;
+  stroke: $flush-orange;
+  margin-right: 20px;
+}
+
+.logon-title {
+  font-size: 28px;
+}
+
 .logon-modal-content .logon-window label {
   margin-top: 10px;
   color: $black;
@@ -128,7 +147,7 @@
   flex-shrink: 0;
   border-radius: 4px;
   border: 1px solid $black;
-  color: red;
+  color: $black;
   font-size: 12px;
   font-weight: 500;
   padding: 0 0 0 12px;
@@ -137,12 +156,13 @@
   transition-property: border;
   transition: $standard;
 }
+
 .logon-buttons {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 30px 0 0 0;
+  margin: 60px 0 0 0;
   padding: 0;
 
   @include tablet {
