@@ -50,3 +50,82 @@ export function tryCreateUser(email, password) {
             });
     });
 }
+
+export function getWatchedByUser(email) {
+    const q = query(collection(db, "watched"), where("user", "==", email));
+    console.log(email);
+
+    return new Promise((resolve, reject) => {
+        getDocs(q)
+            .then((querySnapshot) => {
+                querySnapshot.forEach((doc) => {
+                    // doc.data() is never undefined for query doc snapshots
+                    console.log(doc.id, " => ", doc.data());
+                });
+                resolve({ data: querySnapshot, error: null });
+            })
+            .catch((error) => {
+                console.log("No such document!");
+                reject({ data: null, error: error });
+            });
+    });
+}
+
+export function getQueueByUser(email) {
+    const q = query(collection(db, "queue"), where("user", "==", email));
+    console.log(email);
+
+    return new Promise((resolve, reject) => {
+        getDocs(q)
+            .then((querySnapshot) => {
+                querySnapshot.forEach((doc) => {
+                    console.log(doc.id, " => ", doc.data());
+                });
+                resolve({ data: querySnapshot, error: null });
+            })
+            .catch((error) => {
+                console.log("No such document!");
+                reject({ data: null, error: error });
+            });
+    });
+}
+
+export function addWatchedToUser(email, currentMovie) {
+    const watched = doc(collection(db, "watched"));
+    const data = {
+        user: email,
+        movie: currentMovie
+    }
+
+    return new Promise((resolve, reject) => {
+        setDoc(watched, data)
+            .then((data) => {
+                console.log("Added: ", data);
+                resolve(data);
+            })
+            .catch((error) => {
+                console.log("No such document!");
+                reject(error);
+            });
+    });
+}
+
+export function addQueueToUser(email, currentMovie) {
+    const queue = doc(collection(db, "queue"));
+    const data = {
+        user: email,
+        movie: currentMovie
+    }
+
+    return new Promise((resolve, reject) => {
+        setDoc(queue, data)
+            .then((data) => {
+                console.log("Added: ", data);
+                resolve(data);
+            })
+            .catch((error) => {
+                console.log("No such document!");
+                reject(error);
+            });
+    });
+}
