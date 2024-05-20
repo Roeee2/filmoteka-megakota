@@ -81,6 +81,7 @@
   color: $white;
   transition-property: color;
   transition: $standard;
+  cursor: pointer;
 }
 
 .header-menu-list-element:hover,
@@ -90,6 +91,7 @@
 
 .header-menu-list-element-active {
   color: $marker;
+  cursor: none;
 }
 
 .header-menu-list-element-active::after {
