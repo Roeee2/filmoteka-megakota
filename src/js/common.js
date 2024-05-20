@@ -1,20 +1,26 @@
 import { createPagination } from './pagination';
 import Notiflix from 'notiflix';
-import axios from 'axios';
+import axios from './customAxios';
 import * as firebase from './firebase';
 export { makeGenresString, searchMovie };
 
 initHeader();
 
 const apiKey = '91f5af2219e63824428db203e9d0f8bf';
-
+let allGenres = [];
 const genresQuery = `https://api.themoviedb.org/3/genre/movie/list?api_key=${apiKey}`;
 const getGenres = async () => {
   try {
+    if (allGenres.length > 0) {
+      return allGenres;
+    }
     const response = await axios.get(genresQuery);
-    return response.data.genres;
+    allGenres = response.data.genres;
+
+    return allGenres;
   } catch (error) {
     Notiflix.Notify.failure('Error while fetching genres', error);
+    console.log(error);
     return [];
   }
 };
