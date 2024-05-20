@@ -1,39 +1,35 @@
-<header class="head-lib-bg">
-  <div class="head-lib container">
-    <nav class="header-nav">
-      <div class="logo-div">
-        <a class="header-logo" href="./index.html">
-          <svg class="header-logo-icon" width="24px" height="24px">
+<header class="head-lib-bg" id="head-lib-bg">
+    <div class="head-lib container">
+        <nav class="header-nav">
+            <div class="logo-div">
+                <a class="header-logo" href="./index.html">
+                    <svg class="header-logo-icon" width="24px" height="24px">
             <use href="./images/icons.svg#icon-home"></use>
           </svg>
-          <p class="header-logo-text">Filmoteka</p>
-        </a>
-      </div>
-      <div class="header-menu">
-        <ul class="header-menu-list">
-          <li class="header-menu-list-element">
-            <a class="active header-menu-link" href="./index.html"
-              >HOME</a
-            >
-          </li>
-          <li class="header-menu-list-element">
-            <a class="header-menu-link" href="./index.html/#"
-              >MY LIBRARY</a
-            >
-          </li>
-          <li class="header-menu-list-element">
-            <a class="header-menu-link" href="./partials/home.html">SIGN UP</a>
-          </li>
-          <li class="header-menu-list-element">
-            <a class="header-menu-link" href="./index.html">LOG OUT</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-    <div class="library-header-buttons">
-      <button id="btn-watched" type="button" class="library-header-button">WATCHED</button>
-      <button id="btn-queue" type="button" class="library-header-button">QUEUE</button>
+                    <p class="header-logo-text">Filmoteka</p>
+                </a>
+            </div>
+            <div class="header-menu">
+                <ul class="header-menu-list">
+                    <li class="header-menu-list-element" id="home-menu-myliblary">
+                        HOME
+                    </li>
+                    <li class="header-menu-list-element-active" id="mylib-menu-myliblary">
+                        MY LIBRARY
+                    </li>
+                    </li>
+                    <li class="header-menu-list-element" id="logout-menu-myliblary">
+                        LOGOUT
+                    </li>
+                    <li class="header-menu-list-element" id="email-menu-myliblary"></li>
+
+                </ul>
+            </div>
+        </nav>
+        <div class="library-header-buttons">
+            <button id="btn-watched" type="button" class="library-header-button">WATCHED</button>
+            <button id="btn-queue" type="button" class="library-header-button">QUEUE</button>
+        </div>
     </div>
-  </div>
-</div>
+    </div>
 </header>
