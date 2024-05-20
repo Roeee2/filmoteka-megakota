@@ -25,10 +25,10 @@ const getGenres = async () => {
   }
 };
 
-async function searchMovie(query) {
+async function searchMovie(query, page) {
   try {
     const response = await axios.get(
-      `https://api.themoviedb.org/3/search/movie?query=${query}&adult=false&api_key=${apiKey}`
+      `https://api.themoviedb.org/3/search/movie?query=${query}&page=${page}&per_page=20&adult=false&api_key=${apiKey}`
     );
     return response.data;
   } catch (error) {
@@ -63,7 +63,7 @@ export async function getFilmData(filmId) {
   }
 }
 
-export async function drawMovies(results, page, totalPages) {
+export async function drawMovies(results, page, totalPages, funcName) {
   const galleryElement = document.querySelector('.gallery-cards');
   galleryElement.innerHTML = '';
   for (const result of results) {
@@ -87,7 +87,11 @@ export async function drawMovies(results, page, totalPages) {
 
     const imgElement = document.getElementById(`film-${id}`);
   }
-  createPagination(page, totalPages, 'popularMovies');
+  createPagination(
+    page,
+    totalPages,
+    funcName !== undefined ? funcName : 'popularMovies'
+  );
 }
 
 const loginButton = document.getElementById('login-submit');
@@ -301,4 +305,23 @@ export async function displayFromLocalStorage(pageKey) {
     }
   }
   drawMovies(movies, 0, 0);
+}
+
+export async function searchMoviePagination(page) {
+  const queryInput = document.querySelector('.movie-searcher-input');
+  const query = queryInput.value;
+  if (!query) {
+    Notiflix.Notify.info('Please enter a movie name.');
+    return;
+  }
+  global.page = page;
+  searchMovie(query, page).then(async response => {
+    const results = response.results;
+    await drawMovies(
+      results,
+      global.page,
+      response.total_pages,
+      'searchMoviePagination'
+    );
+  });
 }

@@ -1,10 +1,11 @@
 import { doc } from 'firebase/firestore';
 import { popularMovies } from './popular-movies-home';
-import { displayFromLocalStorage } from './common';
+import { displayFromLocalStorage, searchMoviePagination } from './common';
 
 const gallery = document.querySelector('.gallery-cards');
-let page = 1;
+global.page = 1;
 global.popularMovies = popularMovies;
+global.searchMoviePagination = searchMoviePagination;
 
 document.addEventListener('DOMContentLoaded', () => {
   popularMovies(1);
