@@ -3,6 +3,7 @@ import { getFilmData } from './common';
 document.addEventListener('DOMContentLoaded', () => {
   const modal = document.getElementById('filmModal');
   const galleryList = document.querySelector('ul.gallery-cards');
+  let currentMovie = {};
 
   const openModal = () => {
     if (modal) {
@@ -48,6 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const filmInfo = await getFilmData(filmId);
 
       if (filmInfo) {
+        currentMovie = filmInfo;
         updateModalContent(filmInfo);
         openModal();
       }
@@ -79,11 +81,17 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const addToWatched = () => {
-    console.log('Added to watched');
+    localStorage.setItem(
+      `watched.${currentMovie.id}`,
+      JSON.stringify(currentMovie)
+    );
   };
 
   const addToQueue = () => {
-    console.log('Added to queue');
+    localStorage.setItem(
+      `queue.${currentMovie.id}`,
+      JSON.stringify(currentMovie)
+    );
   };
 
   const watchedButton = document.querySelector(
