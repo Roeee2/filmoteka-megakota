@@ -4,6 +4,8 @@ import axios from 'axios';
 import * as firebase from "./firebase";
 export { makeGenresString, searchMovie };
 
+initHeader();
+
 const apiKey = '91f5af2219e63824428db203e9d0f8bf';
 
 const genresQuery = `https://api.themoviedb.org/3/genre/movie/list?api_key=${apiKey}`;
@@ -102,20 +104,7 @@ loginButton.addEventListener('click', ev => {
             localStorage.setItem('userEmail', userEmail);
             console.log(`Logged ${userEmail}`);
 
-            const myliblaryMenu = document.getElementById('myliblary-menu');
-            const loginMenu = document.getElementById('login-menu');
-            const signupMenu = document.getElementById('signup-menu');
-            const logoutMenu = document.getElementById('logout-menu');
-            const emailMenu = document.getElementById('email-menu');
-            const emailMenuMyLib = document.getElementById('email-menu-myliblary');
-
-            loginMenu.classList.add('is-hidden');
-            signupMenu.classList.add('is-hidden');
-            logoutMenu.classList.remove('is-hidden');
-            emailMenu.classList.remove('is-hidden');
-            emailMenu.textContent = `Hello, ${userEmail}!`;
-            emailMenuMyLib.textContent = `Hello, ${userEmail}!`;
-            myliblaryMenu.classList.remove('is-hidden');
+            setLogIn();
 
             const headBg = document.getElementById('head-bg');
             const headLibBg = document.getElementById('head-lib-bg');
@@ -181,20 +170,7 @@ logoutButton.addEventListener('click', ev => {
             localStorage.removeItem('userEmail');
             console.log(`Unlogged ${userEmail}`);
 
-            const myliblaryMenu = document.getElementById('myliblary-menu');
-            const loginMenu = document.getElementById('login-menu');
-            const signupMenu = document.getElementById('signup-menu');
-            const logoutMenu = document.getElementById('logout-menu');
-            const emailMenu = document.getElementById('email-menu');
-            const emailMenuMyLib = document.getElementById('email-menu-myliblary');
-
-            loginMenu.classList.remove('is-hidden');
-            signupMenu.classList.remove('is-hidden');
-            logoutMenu.classList.add('is-hidden');
-            emailMenu.classList.add('is-hidden');
-            emailMenu.textContent = ``;
-            emailMenuMyLib.textContent = ``;
-            myliblaryMenu.classList.add('is-hidden');
+            setLogOut();
 
             const headBg = document.getElementById('head-bg');
             const headLibBg = document.getElementById('head-lib-bg');
@@ -219,20 +195,7 @@ logoutButtonMyLib.addEventListener('click', ev => {
             localStorage.removeItem('userEmail');
             console.log(`Unlogged ${userEmail}`);
 
-            const myliblaryMenu = document.getElementById('myliblary-menu');
-            const loginMenu = document.getElementById('login-menu');
-            const signupMenu = document.getElementById('signup-menu');
-            const logoutMenu = document.getElementById('logout-menu');
-            const emailMenu = document.getElementById('email-menu');
-            const emailMenuMyLib = document.getElementById('email-menu-myliblary');
-
-            loginMenu.classList.remove('is-hidden');
-            signupMenu.classList.remove('is-hidden');
-            logoutMenu.classList.add('is-hidden');
-            emailMenu.classList.add('is-hidden');
-            emailMenu.textContent = ``;
-            emailMenuMyLib.textContent = ``;
-            myliblaryMenu.classList.add('is-hidden');
+            setLogOut();
 
             const headBg = document.getElementById('head-bg');
             const headLibBg = document.getElementById('head-lib-bg');
@@ -273,3 +236,51 @@ homeMenuMyliblary.addEventListener('click', ev => {
     headBg.style.display = 'block';
     headLibBg.style.display = 'none';
 });
+
+function setLogIn() {
+    const myliblaryMenu = document.getElementById('myliblary-menu');
+    const loginMenu = document.getElementById('login-menu');
+    const signupMenu = document.getElementById('signup-menu');
+    const logoutMenu = document.getElementById('logout-menu');
+    const emailMenu = document.getElementById('email-menu');
+    const emailMenuMyLib = document.getElementById('email-menu-myliblary');
+
+    const userEmail = localStorage.getItem('userEmail');
+    loginMenu.style.display = 'none';
+    signupMenu.style.display = 'none';
+    logoutMenu.style.display = 'block'
+    emailMenu.style.display = 'block'
+    emailMenu.textContent = `Hello, ${userEmail}!`;
+    emailMenuMyLib.textContent = `Hello, ${userEmail}!`;
+    myliblaryMenu.style.display = 'block'
+}
+
+function setLogOut() {
+    const myliblaryMenu = document.getElementById('myliblary-menu');
+    const loginMenu = document.getElementById('login-menu');
+    const signupMenu = document.getElementById('signup-menu');
+    const logoutMenu = document.getElementById('logout-menu');
+    const emailMenu = document.getElementById('email-menu');
+    const emailMenuMyLib = document.getElementById('email-menu-myliblary');
+
+    loginMenu.style.display = 'block';
+    signupMenu.style.display = 'block';
+    logoutMenu.style.display = 'none'
+    emailMenu.style.display = 'none'
+    emailMenu.textContent = ``;
+    emailMenuMyLib.textContent = ``;
+    myliblaryMenu.style.display = 'none'
+}
+
+function isUserEmailStored() {
+    const userEmail = localStorage.getItem('userEmail');
+    return userEmail !== null;
+}
+
+function initHeader() {
+    if (isUserEmailStored()) {
+        setLogIn();
+    } else {
+        setLogOut();
+    }
+}
