@@ -268,7 +268,7 @@ function setLogOut() {
   emailMenu.style.display = 'none';
   emailMenu.textContent = ``;
   emailMenuMyLib.textContent = ``;
-  myliblaryMenu.style.display = 'none';
+  //nmyliblaryMenu.style.display = 'none';
 }
 
 function isUserEmailStored() {
