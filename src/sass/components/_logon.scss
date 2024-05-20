@@ -8,19 +8,19 @@
   padding: 0px;
   margin: 0px;
   transform: translate(-50%, -50%) scale(1);
-  width: 280px;
+  width: 220px;
   height: 940px;
   max-height: 90%;
   max-width: 90%;
   transition: transform $standard;
 
   @include tablet {
-    width: 704px;
+    width: 304px;
     height: 552px;
   }
 
   @include desktop {
-    width: 806px;
+    width: 406px;
     height: 558px;
   }
 
@@ -33,10 +33,11 @@
   box-sizing: content-box;
   background-color: $white;
   margin: 0;
-  padding: 20px 20px 50px 20px;
+  padding: 40px 20px 50px 20px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: center;
   max-width: 280px;
   max-height: 940px;
 
@@ -50,7 +51,7 @@
 
   @include desktop {
     margin: 0;
-    padding: 40px 12px;
+    padding: 80px 12px;
     flex-direction: row;
     max-width: 806px;
     max-height: 558px;
@@ -109,19 +110,45 @@
   fill: $modal-info;
 }
 
-.logon-buttons {
+.logon-window {
   display: flex;
-  gap: 20px;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.logon-modal-content .logon-window label {
+  margin-top: 10px;
+  color: $black;
+}
+
+.input-box {
+  width: 100%;
+  max-width: 240px;
+  height: 40px;
+  flex-shrink: 0;
+  border-radius: 4px;
+  border: 1px solid $black;
+  color: red;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 0 0 0 12px;
+  position: relative;
+  outline: none;
+  transition-property: border;
+  transition: $standard;
+}
+.logon-buttons {
+  width: 100%;
+  display: flex;
   justify-content: center;
-  margin: 20px 0 0 0;
+  align-items: center;
+  margin: 30px 0 0 0;
   padding: 0;
 
   @include tablet {
-    justify-content: left;
   }
 
   @include desktop {
-    margin-left: 8px;
   }
 
   @include smallmob {
