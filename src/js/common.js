@@ -18,15 +18,15 @@ const getGenres = async() => {
 };
 
 async function searchMovie(query) {
-  try {
-    const response = await axios.get(
-      `https://api.themoviedb.org/3/search/movie?query=${query}&adult=false&api_key=${apiKey}`
-    );
-    return response.data;
-  } catch (error) {
-    console.error('Error fetching film data:', error);
-    return null;
-  }
+    try {
+        const response = await axios.get(
+            `https://api.themoviedb.org/3/search/movie?query=${query}&adult=false&api_key=${apiKey}`
+        );
+        return response.data;
+    } catch (error) {
+        console.error('Error fetching film data:', error);
+        return null;
+    }
 }
 
 const makeGenresString = async array => {
@@ -102,16 +102,29 @@ loginButton.addEventListener('click', ev => {
             localStorage.setItem('userEmail', userEmail);
             console.log(`Logged ${userEmail}`);
 
+            const myliblaryMenu = document.getElementById('myliblary-menu');
             const loginMenu = document.getElementById('login-menu');
             const signupMenu = document.getElementById('signup-menu');
             const logoutMenu = document.getElementById('logout-menu');
             const emailMenu = document.getElementById('email-menu');
+            const emailMenuMyLib = document.getElementById('email-menu-myliblary');
 
             loginMenu.classList.add('is-hidden');
             signupMenu.classList.add('is-hidden');
             logoutMenu.classList.remove('is-hidden');
             emailMenu.classList.remove('is-hidden');
             emailMenu.textContent = `Hello, ${userEmail}!`;
+            emailMenuMyLib.textContent = `Hello, ${userEmail}!`;
+            myliblaryMenu.classList.remove('is-hidden');
+
+            const headBg = document.getElementById('head-bg');
+            const headLibBg = document.getElementById('head-lib-bg');
+
+            headBg.style.display = 'none';
+            headLibBg.style.display = 'block';
+
+            const loginModal = document.getElementById("loginModal");
+            loginModal.classList.add('is-hidden');
 
         })
         .catch((error) => {
@@ -140,14 +153,17 @@ submitButton.addEventListener('click', ev => {
     if (password === passwordConf) {
         firebase.tryCreateUser(email, password)
             .then((userCredential) => {
+                Notiflix.Notify.failure('A new account has been added!', error);
+                const signupModal = document.getElementById("signupModal");
+                signupModal.classList.add('is-hidden');
                 console.log("ok")
                 const user = userCredential.data.user;
                 console.log(user)
             })
             .catch((error) => {
                 console.log("nok")
-                const errorCode = error.error.code;
-                const errorMessage = error.error.message;
+                const errorCode = error.code;
+                const errorMessage = error.message;
                 console.log(errorCode)
                 console.log(errorMessage)
             });
@@ -165,19 +181,95 @@ logoutButton.addEventListener('click', ev => {
             localStorage.removeItem('userEmail');
             console.log(`Unlogged ${userEmail}`);
 
+            const myliblaryMenu = document.getElementById('myliblary-menu');
             const loginMenu = document.getElementById('login-menu');
             const signupMenu = document.getElementById('signup-menu');
             const logoutMenu = document.getElementById('logout-menu');
             const emailMenu = document.getElementById('email-menu');
+            const emailMenuMyLib = document.getElementById('email-menu-myliblary');
 
             loginMenu.classList.remove('is-hidden');
             signupMenu.classList.remove('is-hidden');
             logoutMenu.classList.add('is-hidden');
             emailMenu.classList.add('is-hidden');
             emailMenu.textContent = ``;
+            emailMenuMyLib.textContent = ``;
+            myliblaryMenu.classList.add('is-hidden');
+
+            const headBg = document.getElementById('head-bg');
+            const headLibBg = document.getElementById('head-lib-bg');
+
+            headBg.style.display = 'block';
+            headLibBg.style.display = 'none';
+
+
 
         })
         .catch((error) => {
             console.log(error);
         })
+});
+
+const logoutButtonMyLib = document.getElementById("logout-menu-myliblary");
+
+logoutButtonMyLib.addEventListener('click', ev => {
+    firebase.tryLogoutUser()
+        .then((data) => {
+            const userEmail = localStorage.getItem('userEmail');
+            localStorage.removeItem('userEmail');
+            console.log(`Unlogged ${userEmail}`);
+
+            const myliblaryMenu = document.getElementById('myliblary-menu');
+            const loginMenu = document.getElementById('login-menu');
+            const signupMenu = document.getElementById('signup-menu');
+            const logoutMenu = document.getElementById('logout-menu');
+            const emailMenu = document.getElementById('email-menu');
+            const emailMenuMyLib = document.getElementById('email-menu-myliblary');
+
+            loginMenu.classList.remove('is-hidden');
+            signupMenu.classList.remove('is-hidden');
+            logoutMenu.classList.add('is-hidden');
+            emailMenu.classList.add('is-hidden');
+            emailMenu.textContent = ``;
+            emailMenuMyLib.textContent = ``;
+            myliblaryMenu.classList.add('is-hidden');
+
+            const headBg = document.getElementById('head-bg');
+            const headLibBg = document.getElementById('head-lib-bg');
+
+            headBg.style.display = 'block';
+            headLibBg.style.display = 'none';
+
+        })
+        .catch((error) => {
+            console.log(error);
+        })
+});
+
+
+const mylibMenuMyliblary = document.getElementById("mylib-menu-myliblary");
+
+mylibMenuMyliblary.addEventListener('click', ev => {
+    const headBg = document.getElementById('head-bg');
+    const headLibBg = document.getElementById('head-lib-bg');
+    headBg.style.display = 'none';
+    headLibBg.style.display = 'block';
+});
+
+const myliblaryMenu = document.getElementById("myliblary-menu");
+
+myliblaryMenu.addEventListener('click', ev => {
+    const headBg = document.getElementById('head-bg');
+    const headLibBg = document.getElementById('head-lib-bg');
+    headBg.style.display = 'none';
+    headLibBg.style.display = 'block';
+});
+
+const homeMenuMyliblary = document.getElementById("home-menu-myliblary");
+
+homeMenuMyliblary.addEventListener('click', ev => {
+    const headBg = document.getElementById('head-bg');
+    const headLibBg = document.getElementById('head-lib-bg');
+    headBg.style.display = 'block';
+    headLibBg.style.display = 'none';
 });
