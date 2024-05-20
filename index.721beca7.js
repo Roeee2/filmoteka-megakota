@@ -1,2 +1,0 @@
-document.addEventListener("DOMContentLoaded",()=>{let e=document.querySelector(".header-menu-list:nth-child(1)"),t=document.querySelector(".head-bg"),l=document.querySelector(".head-lib-bg"),n=!1;e.addEventListener("click",o=>{o.preventDefault(),console.log("Before Click - isLoggedIn:",n),n?(e.textContent="LOG IN",t.style.display="block",l.style.display="none"):(e.textContent="LOG OUT",t.style.display="none",l.style.display="block"),console.log("After Click - isLoggedIn:",n=!n)})});
-//# sourceMappingURL=index.721beca7.js.map
