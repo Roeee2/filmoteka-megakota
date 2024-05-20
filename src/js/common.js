@@ -1,28 +1,34 @@
 import { createPagination } from './pagination';
 import Notiflix from 'notiflix';
-import axios from 'axios';
+import axios from './customAxios';
 import * as firebase from './firebase';
 export { makeGenresString, searchMovie };
 
 initHeader();
 
 const apiKey = '91f5af2219e63824428db203e9d0f8bf';
-
+let allGenres = [];
 const genresQuery = `https://api.themoviedb.org/3/genre/movie/list?api_key=${apiKey}`;
 const getGenres = async () => {
   try {
+    if (allGenres.length > 0) {
+      return allGenres;
+    }
     const response = await axios.get(genresQuery);
-    return response.data.genres;
+    allGenres = response.data.genres;
+
+    return allGenres;
   } catch (error) {
     Notiflix.Notify.failure('Error while fetching genres', error);
+    console.log(error);
     return [];
   }
 };
 
-async function searchMovie(query) {
+async function searchMovie(query, page) {
   try {
     const response = await axios.get(
-      `https://api.themoviedb.org/3/search/movie?query=${query}&adult=false&api_key=${apiKey}`
+      `https://api.themoviedb.org/3/search/movie?query=${query}&page=${page}&per_page=20&adult=false&api_key=${apiKey}`
     );
     return response.data;
   } catch (error) {
@@ -57,7 +63,7 @@ export async function getFilmData(filmId) {
   }
 }
 
-export async function drawMovies(results, page, totalPages) {
+export async function drawMovies(results, page, totalPages, funcName) {
   const galleryElement = document.querySelector('.gallery-cards');
   galleryElement.innerHTML = '';
   for (const result of results) {
@@ -81,7 +87,11 @@ export async function drawMovies(results, page, totalPages) {
 
     const imgElement = document.getElementById(`film-${id}`);
   }
-  createPagination(page, totalPages, 'popularMovies');
+  createPagination(
+    page,
+    totalPages,
+    funcName !== undefined ? funcName : 'popularMovies'
+  );
 }
 
 const loginButton = document.getElementById('login-submit');
@@ -295,4 +305,23 @@ export async function displayFromLocalStorage(pageKey) {
     }
   }
   drawMovies(movies, 0, 0);
+}
+
+export async function searchMoviePagination(page) {
+  const queryInput = document.querySelector('.movie-searcher-input');
+  const query = queryInput.value;
+  if (!query) {
+    Notiflix.Notify.info('Please enter a movie name.');
+    return;
+  }
+  global.page = page;
+  searchMovie(query, page).then(async response => {
+    const results = response.results;
+    await drawMovies(
+      results,
+      global.page,
+      response.total_pages,
+      'searchMoviePagination'
+    );
+  });
 }
