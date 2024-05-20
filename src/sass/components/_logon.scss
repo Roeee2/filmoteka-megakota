@@ -43,7 +43,7 @@
 
   @include tablet {
     margin: 0;
-    padding: 40px 36px;
+    padding: 80px 20px 50px 20px;
     flex-direction: row;
     max-width: 704px;
     max-height: 552px;
@@ -128,11 +128,24 @@
   vertical-align: middle;
   fill: none;
   stroke: $flush-orange;
-  margin-right: 20px;
+  margin-right: 36px;
+  transition: stroke $standard;
+}
+
+.logo-icon:hover,
+.logo-icon:focus {
+  stroke: $rusty;
 }
 
 .logon-title {
   font-size: 28px;
+  width: 180px;
+  transition: color $standard;
+}
+
+.logon-title:hover,
+.logon-title:focus {
+  color: $rusty;
 }
 
 .logon-modal-content .logon-window label {
@@ -153,8 +166,12 @@
   padding: 0 0 0 12px;
   position: relative;
   outline: none;
-  transition-property: border;
-  transition: $standard;
+  transition: border-color $standard;
+}
+
+.input-box:hover,
+.input-box:focus {
+  border-color: $flush-orange;
 }
 
 .logon-buttons {
@@ -166,6 +183,7 @@
   padding: 0;
 
   @include tablet {
+    margin: 40px 0 0 0;
   }
 
   @include desktop {
