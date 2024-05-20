@@ -1,11 +1,40 @@
-<div id="logonModal" class="backdrop2 is-hidden2">
+<div id="loginModal" class="backdrop is-hidden">
   <div class="logon-modal">
     <div class="logon-modal-content">
-      <button type="button" class="modal-close-button2">
-        <svg class="icon-close2">
+      <button
+        type="button"
+        class="logon-close-button"
+        id="loginModalCloseButton"
+      >
+        <svg class="icon-logon-close">
           <use href="./images/icons.svg#icon-close"></use>
         </svg>
       </button>
+      <div>
+        <form>
+          <div>
+            <label for="email">Email:</label>
+            <input
+              type="email"
+              id="email-input"
+              placeholder="Enter email"
+              required
+            />
+          </div>
+          <div>
+            <label for="password">Hasło:</label>
+            <input
+              type="password"
+              id="password-input"
+              placeholder="Enter password"
+              required
+            />
+          </div>
+          <div class="logon-buttons">
+            <button type="submit" id="login-submit">Login</button>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
 </div>
