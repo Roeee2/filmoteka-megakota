@@ -13,7 +13,7 @@ export async function getDataAndCreatePagination() {
     const data = response.data;
     totalPages = data.total_pages;
     currentPage = 1;
-    createPagination(currentPage, totalPages);
+    createPagination(currentPage, totalPages, 'goToPage');
   } catch (error) {
     Notiflix.Notify.failure('Error while collecting the data', error);
   }
@@ -25,55 +25,71 @@ export function createPagination(currentPage, totalPages, funcName) {
   const paginationElement = document.querySelector('#pagination');
   paginationElement.innerHTML = '';
 
-  //tworzenie strzałki w lewo przy pomocy encji HTML
+  const createPageItem = page => {
+    const pageItem = document.createElement('li');
+    pageItem.innerHTML = `<a href="#" onclick="${funcName}(${page})">${page}</a>`;
+    if (page === currentPage) {
+      pageItem.querySelector('a').classList.add('active');
+    }
+    return pageItem;
+  };
 
-  const prevPage = document.createElement('li');
-  prevPage.innerHTML = `<a href="#" onclick="${funcName}(${
-    currentPage - 1
-  })">&laquo</a>`;
-  paginationElement.appendChild(prevPage);
-
-  //tworzenie numerów stron + podświetlenie aktywnego numeru strony
-  const page = document.createElement('li');
-  page.innerHTML = `<a href="#" onclick="${funcName}(1)">1</a>`;
-  if (1 === currentPage) {
-    page.querySelector('a').classList.add('active');
+  // Tworzenie strzałki w lewo
+  if (currentPage > 1) {
+    const prevPage = document.createElement('li');
+    prevPage.innerHTML = `<a href="#" onclick="${funcName}(${
+      currentPage - 1
+    })">&laquo</a>`;
+    paginationElement.appendChild(prevPage);
   }
-  paginationElement.appendChild(page);
 
-  if (currentPage >= 6) {
-    const page = document.createElement('li');
-    page.innerHTML = `<a href="#"">...</a>`;
-    paginationElement.appendChild(page);
+  // Dodawanie pierwszej strony
+  paginationElement.appendChild(createPageItem(1));
+
+  // Dodawanie trzech kropek na poczatku
+  if (currentPage > 4) {
+    const dots = document.createElement('li');
+    dots.innerHTML = `<a href="#">...</a>`;
+    paginationElement.appendChild(dots);
   }
+
+  // Dodawanie numerów stron wokół currentPage
   for (
-    let i = currentPage - 2 < 1 ? 2 : currentPage - 2;
-    i <= totalPages;
+    let i = Math.max(2, currentPage - 2);
+    i <= Math.min(currentPage + 2, totalPages - 1);
     i++
   ) {
-    const page = document.createElement('li');
-    page.innerHTML = `<a href="#" onclick="${funcName}(${i})">${i}</a>`;
-    if (i === currentPage) {
-      page.querySelector('a').classList.add('active');
-    }
-    paginationElement.appendChild(page);
-    if (i > currentPage + 1) {
-      break;
-    }
+    paginationElement.appendChild(createPageItem(i));
   }
 
-  //tworzenie strzałki w prawo przy pomocy encji HTML
+  // Dodawanie trzech kropek jeśli currentPage jest blisko końca
+  if (currentPage < totalPages - 3) {
+    const dots = document.createElement('li');
+    dots.innerHTML = `<a href="#">...</a>`;
+    paginationElement.appendChild(dots);
+  }
 
-  const nextPage = document.createElement('li');
-  nextPage.innerHTML = `<a href="#" onclick="${funcName}(${
-    currentPage + 1
-  })">&raquo</a>`;
-  paginationElement.appendChild(nextPage);
+  // Dodawanie ostatniej strony
+  if (totalPages > 1) {
+    paginationElement.appendChild(createPageItem(totalPages));
+  }
+
+  // Tworzenie strzalki w prawo
+  if (currentPage < totalPages) {
+    const nextPage = document.createElement('li');
+    nextPage.innerHTML = `<a href="#" onclick="${funcName}(${
+      currentPage + 1
+    })">&raquo</a>`;
+    paginationElement.appendChild(nextPage);
+  }
 }
 
 function goToPage(page) {
   if (page >= 1 && page <= totalPages) {
     currentPage = page;
-    createPagination(currentPage, totalPages);
+    createPagination(currentPage, totalPages, 'goToPage');
   }
 }
+
+// inicjowanie paginacji
+getDataAndCreatePagination();
