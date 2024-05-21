@@ -89,10 +89,12 @@
   background-color: $flush-orange;
   color: $white;
 }
-.film-info {
+.film-desc .film-info {
   font-family: $main-font;
   color: $flush-orange;
   font-size: 12px;
+  display: flex;
+  align-items: center;
 }
 .film-info span {
   color: $white;
@@ -138,6 +140,9 @@
   background-color: $flush-orange;
   color: $white;
 }
+.card-rating-home {
+  font-size: 12px;
+}
 @media screen and (min-width: 768px) {
   .container {
     width: 100%;
@@ -182,12 +187,12 @@
     width: 395px;
   }
   .card-film-title {
-    font-size: 20px;
+    font-size: 22px;
   }
   .film-desc .film-info {
-    font-size: 16px;
+    font-size: 18px;
   }
-  .film-info span {
-    font-size: 12px;
+  .card-rating-home {
+    font-size: 14px;
   }
 }

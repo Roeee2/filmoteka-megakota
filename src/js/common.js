@@ -79,7 +79,7 @@ export async function drawMovies(results, page, totalPages, funcName) {
           </div>
           <div class="film-desc">
             <p class="card-film-title">${original_title}</p>
-            <p class="film-info">${genres} | ${getReleaseYear} |<span>${vote_average.toFixed(
+            <p class="film-info">${genres} | ${getReleaseYear} |<span class="card-rating-home">${vote_average.toFixed(
       1
     )}</span></p>
           </div>
