@@ -3,7 +3,6 @@
   margin: 0 auto;
   background-color: $white;
 }
-
 .films-gallery-home {
   display: flex;
   flex-direction: column;
@@ -17,7 +16,6 @@
   padding-top: 20px;
   margin: 0 auto;
 }
-
 .film-card {
   display: flex;
   flex-direction: column;
@@ -28,21 +26,18 @@
   background-color: $white;
   list-style: none;
   cursor: pointer;
-  transition: transform .25s ease-in-out;
+  transition: transform 0.25s ease-in-out;
 }
-
 .film-card:hover {
   transform: scale(1.03);
   // box-shadow: 6px 6px 5px 2px rgba(0, 0, 0, 0.3);
   // border-radius: 5px;
 }
-
 .film-img {
   border-radius: 5px;
   height: 402px;
   width: 280px;
 }
-
 .card-film-title {
   font-family: $main-font;
   color: $black;
@@ -50,11 +45,23 @@
   font-weight: 500;
   text-transform: uppercase;
 }
-
 .film-info {
   font-family: $main-font;
   color: $flush-orange;
   font-size: 12px;
+}
+.film-info span {
+  color: $white;
+  text-align: center;
+  background-color: $flush-orange;
+  border-radius: 8px;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 16px;
+  padding: 10px 22px;
+  line-height: 16px;
+  display: flex;
 }
 .pagination {
   display: flex;
@@ -64,17 +71,14 @@
   margin: 0 auto;
   padding: 40px 0;
 }
-
 .pagination li {
   margin: 0 auto;
 }
-
 .pagination li a {
   text-decoration: none;
   color: $black;
   background-color: $white;
   border-radius: 5px;
-  background-color: $bg-footer;
   margin: 0 auto;
   display: grid;
   align-items: center;
@@ -82,12 +86,14 @@
   height: 40px;
   width: 40px;
 }
-
+.pagination li a.pag-a {
+  background-color: $bg-footer;
+  color: $black;
+}
 .pagination li a.active {
   background-color: $flush-orange;
   color: $white;
 }
-
 @media screen and (min-width: 768px) {
   .container {
     width: 100%;
@@ -134,7 +140,6 @@
   .card-film-title {
     font-size: 20px;
   }
-
   .film-info {
     font-size: 20px;
   }

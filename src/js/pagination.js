@@ -1,5 +1,6 @@
 import Notiflix from 'notiflix';
 import axios from 'axios';
+import arrow from '../images/icons.svg';
 
 let currentPage;
 let totalPages;
@@ -37,12 +38,16 @@ export function createPagination(currentPage, totalPages, funcName) {
   // Tworzenie strzałki w lewo
   if (currentPage > 1) {
     const prevPage = document.createElement('li');
-    prevPage.innerHTML = `<a href="#" onclick="${funcName}(${
+    prevPage.innerHTML = `<a href="#" class="pag-a" onclick="${funcName}(${
       currentPage - 1
-    })">&laquo</a>`;
+    })">
+    <svg width="16px" height="16px">
+    <use href="${arrow}#icon-arrow-left"></use>
+    </svg>
+    </a>`;
     paginationElement.appendChild(prevPage);
   }
-
+  totalPages = totalPages > 500 ? 500 : totalPages;
   // Dodawanie pierwszej strony
   paginationElement.appendChild(createPageItem(1));
 
@@ -77,9 +82,13 @@ export function createPagination(currentPage, totalPages, funcName) {
   // Tworzenie strzalki w prawo
   if (currentPage < totalPages) {
     const nextPage = document.createElement('li');
-    nextPage.innerHTML = `<a href="#" onclick="${funcName}(${
+    nextPage.innerHTML = `<a href="#" class="pag-a" onclick="${funcName}(${
       currentPage + 1
-    })">&raquo</a>`;
+    })">
+    <svg width="16px" height="16px">
+    <use href="${arrow}#icon-arrow-right"></use>
+    </svg>
+    </a>`;
     paginationElement.appendChild(nextPage);
   }
 }
