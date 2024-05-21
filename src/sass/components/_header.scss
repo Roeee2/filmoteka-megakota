@@ -188,7 +188,7 @@ button.submit-icon {
 }
 
 .movie-searcher-input:hover::placeholder {
-  color: #ff010b;
+  color: $white;
 }
 
 .movie-searcher-input:focus {
@@ -204,7 +204,6 @@ button.submit-icon {
   padding-top: 5px;
   padding-bottom: 6px;
 }
-
 
 // @media screen and (min-width: 768px) {
 // .header {
@@ -250,4 +249,3 @@ button.submit-icon {
 //     min-width: 394px;
 //   }
 // }
-
