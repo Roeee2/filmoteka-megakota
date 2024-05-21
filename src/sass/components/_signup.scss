@@ -7,19 +7,17 @@
   margin: 0px;
   transform: translate(-50%, -50%) scale(1);
   width: 220px;
-  height: 492px;
+  height: 594px;
   max-height: 90%;
   max-width: 90%;
   transition: transform $standard;
 
   @include tablet {
     width: 304px;
-    height: 492px;
   }
 
   @include desktop {
     width: 406px;
-    height: 558px;
   }
 
   @include smallmob {
@@ -37,14 +35,13 @@
   align-items: center;
   justify-content: center;
   max-width: 180px;
-  max-height: 492px;
+  max-height: 594px;
 
   @include tablet {
     margin: 0;
     padding: 80px 20px 50px 20px;
     flex-direction: row;
     max-width: 304px;
-    max-height: 492px;
   }
 
   @include desktop {
@@ -52,7 +49,6 @@
     padding: 100px 12px 60px 12px;
     flex-direction: row;
     max-width: 406px;
-    max-height: 558px;
   }
 }
 
