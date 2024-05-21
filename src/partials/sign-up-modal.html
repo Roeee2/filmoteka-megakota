@@ -1,19 +1,19 @@
 <div id="signupModal" class="backdrop is-hidden">
-  <div class="modal">
-    <div class="modal-content">
+  <div class="signup-modal">
+    <div class="signup-modal-content">
       <button
         type="button"
-        class="modal-close-button"
+        class="signup-close-button"
         id="signupModalCloseButton"
       >
-        <svg class="icon-close">
+        <svg class="icon-signup-close">
           <use href="./images/icons.svg#icon-close"></use>
         </svg>
       </button>
       <div>
         <form>
           <div>
-            <label for="email-input-signup">Email:</label>
+            <label for="email-input-signup" id="signup-email">Email:</label>
             <input
               type="email"
               id="email-input-signup"
@@ -22,7 +22,9 @@
             />
           </div>
           <div>
-            <label for="password-input-signup">Password:</label>
+            <label for="password-input-signup" id="signup-password"
+              >Password:</label
+            >
             <input
               type="password"
               id="password-input-signup"
@@ -31,7 +33,9 @@
             />
           </div>
           <div>
-            <label for="confirmPassword-input-signup">Confirm Password:</label>
+            <label for="confirmPassword-input-signup" id="signup-password-conf"
+              >Confirm Password:</label
+            >
             <input
               type="password"
               id="confirmPassword-input-signup"
@@ -39,7 +43,9 @@
               required
             />
           </div>
-          <button type="submit" id="signup-submit">Create account</button>
+          <div class="signup-buttons">
+            <button type="submit" id="signup-submit">Create account</button>
+          </div>
         </form>
       </div>
     </div>
