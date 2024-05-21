@@ -21,7 +21,7 @@
   }
 
   @include tablet {
-    @media (min-width: 768px) and (max-width: 1024px) {
+    @media (min-width: 768px) and (max-width: 1200px) {
       background-image: url('./../images/tablet-main-bg.jpg');
 
       @media (min-device-pixel-ratio: 2),
@@ -168,49 +168,4 @@
   gap: 8px;
   padding-top: 5px;
   padding-bottom: 6px;
-}
-
-@media screen and (min-width: 768px) {
-  .header {
-    background-image: url('./../images/tablet-main-bg.jpg');
-    padding: 40px 32px 81px 32px;
-  }
-  @media (min-device-pixel-ratio: 2),
-    (min-resolution: 192dpi),
-    (min-resolution: 2dppx) {
-    .header {
-      background-image: url('./../images/tablet-main-bg@2x.jpg');
-    }
-  }
-
-  .header-logo-text {
-    display: inline-block;
-    color: $white;
-    font-family: $main-font;
-    font-size: 30px;
-    font-weight: 500;
-    margin-left: 10px;
-  }
-
-  .movie-searcher-form {
-    min-width: 336px;
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  .header {
-    background-image: url('./../images/desktop-main-bg.jpg');
-  }
-
-  @media (min-device-pixel-ratio: 2),
-    (min-resolution: 192dpi),
-    (min-resolution: 2dppx) {
-    .header {
-      background-image: url('./../images/desktop-main-bg@2x.jpg');
-    }
-  }
-
-  .movie-searcher-form {
-    min-width: 394px;
-  }
 }
