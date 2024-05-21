@@ -1,0 +1,181 @@
+.students-modal {
+  position: fixed;
+  overflow-y: auto;
+  top: 50%;
+  left: 50%;
+  padding: 0px;
+  margin: 0px;
+  transform: translate(-50%, -50%) scale(1);
+  width: 220px;
+  height: 794px;
+  max-height: 90%;
+  max-width: 90%;
+  transition: transform $standard;
+
+  @include tablet {
+    width: 304px;
+  }
+
+  @include desktop {
+    width: 406px;
+  }
+
+  @include smallmob {
+    width: 80%;
+  }
+}
+
+.students-modal-content {
+  box-sizing: content-box;
+  background-color: $white;
+  margin: 0;
+  padding: 40px 20px 50px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 180px;
+  max-height: 794px;
+
+  @include tablet {
+    margin: 0;
+    padding: 80px 20px 50px 20px;
+    flex-direction: row;
+    max-width: 304px;
+  }
+
+  @include desktop {
+    margin: 0;
+    padding: 100px 12px 60px 12px;
+    flex-direction: row;
+    max-width: 406px;
+  }
+}
+
+.students-modal-content a:hover,
+.students-modal-content a:focus {
+  color: $rusty;
+}
+
+.students-close-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  transition: fill $standard;
+  fill: $black;
+
+  @include tablet {
+    width: 26px;
+    height: 26px;
+  }
+
+  @include desktop {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+.students-close-button:hover,
+.students-close-button:focus {
+  fill: $modal-info;
+}
+
+.icon-students-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  transition: fill $standard;
+  fill: $black;
+
+  @include tablet {
+    width: 26px;
+    height: 26px;
+  }
+
+  @include desktop {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+.icon-students-close:hover,
+.icon-students-close:focus {
+  fill: $flush-orange;
+}
+
+.students-window {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.students-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 40px;
+  @include tablet {
+    flex-direction: row;
+  }
+}
+
+.students-icon {
+  fill: none;
+  stroke: $flush-orange;
+  margin: 10px auto;
+  transition: stroke $standard;
+  width: 24px;
+  height: 24px;
+
+  @include tablet {
+    margin-right: 26px;
+    width: 36px;
+    height: 36px;
+  }
+}
+
+.students-icon:hover,
+.students-icon:focus {
+  stroke: $flush-orange;
+}
+
+.students-title {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-size: 20px;
+  width: 180px;
+  transition: color $standard;
+
+  @include tablet {
+    font-size: 24px;
+  }
+}
+
+.students-title:hover,
+.students-title:focus {
+  color: $flush-orange;
+}
+
+.students-names {
+  font-size: 12px;
+  color: $black;
+}
+
+.students-names ol {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.students-names ol li {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
