@@ -4,6 +4,7 @@ import Notiflix from 'notiflix';
 
 const searchForm = document.querySelector('.movie-searcher-form');
 const gallery = document.querySelector('.gallery-cards');
+const notificationHeader = document.querySelector('p.query-notification');
 
 searchForm.addEventListener('submit', event => {
   event.preventDefault();
@@ -11,6 +12,8 @@ searchForm.addEventListener('submit', event => {
   const query = queryInput.value;
   if (!query) {
     Notiflix.Notify.info('Please enter a movie name.');
+    notificationHeader.textContent =
+      'Search result not successful. Enter the correct movie name and try again.';
     return;
   }
   global.page = 1;
