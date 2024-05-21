@@ -9,13 +9,23 @@ searchForm.addEventListener('submit', event => {
   event.preventDefault();
   const queryInput = document.querySelector('.movie-searcher-input');
   const query = queryInput.value;
-  if (!query) {
-    Notiflix.Notify.info('Please enter a movie name.');
-    return;
-  }
+  
   global.page = 1;
   searchMovie(query, 1).then(async response => {
-    const results = response.results;
+    if (!query) {
+      Notiflix.Notify.info('Please enter a movie name.');
+      return;
+    }
+    const results = response.results
+    const totalResults = response.total_results;
+    if (results.length === 0) {
+      gallery.innerHTML = '';
+      Notiflix.Notify.failure(
+        'Sorry, there are no movies matching your search query. Please try again.'
+      );
+    } else {
+      Notiflix.Notify.success(`Hooray! We found ${totalResults} movies.`);
+    }
     await drawMovies(
       results,
       global.page,
