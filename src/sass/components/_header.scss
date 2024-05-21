@@ -119,6 +119,10 @@
   transition: $standard;
 }
 
+.search-button {
+  background: none;
+}
+
 .header-logo-icon {
   fill: none;
   stroke: $white;
@@ -155,6 +159,10 @@
 .movie-searcher-input::placeholder {
   color: $white;
   opacity: 1;
+}
+
+.movie-searcher-input:hover::placeholder {
+  color: #ff010b;
 }
 
 .movie-searcher-input:focus {
