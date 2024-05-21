@@ -21,6 +21,7 @@
   background-position: 50%, 50%;
   background-size: cover;
   padding: 40px 20px 92px 20px;
+  max-width: 768px;
 
   @media (min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
@@ -28,9 +29,14 @@
     background-image: url('./../images/mobile-main-bg@2x.jpg');
   }
 
+  @include smallmob {
+    width: 280px;
+  }
+
   @include tablet {
     // @media (min-width: 768px) and (max-width: 1024px) {
     background-image: url('./../images/tablet-main-bg.jpg');
+    max-width: 1280px;
 
     @media (min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),
@@ -42,6 +48,7 @@
   @include desktop {
     // @media (min-width: 1024px) {
     background-image: url('./../images/desktop-main-bg.jpg');
+    max-width: 2200px;
 
     @media (min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),
@@ -89,6 +96,9 @@
   transition-property: color;
   transition: $standard;
   cursor: pointer;
+  @include smallmob {
+    font-size: 8px;
+  }
 }
 
 .header-menu-list-element:hover,
@@ -99,6 +109,9 @@
 .header-menu-list-element-active {
   color: $marker;
   cursor: none;
+  @include smallmob {
+    font-size: 8px;
+  }
 }
 
 .header-menu-list-element-active::after {
@@ -161,6 +174,10 @@
   @include desktop {
     min-width: 394px;
   }
+
+  @include smallmob {
+    width: 100px;
+  }
 }
 .notification-container {
   margin-top: 20px;
@@ -170,7 +187,16 @@
   color: $errors;
   font-size: 14px;
   font-weight: 400;
+  @include smallmob {
+    font-size: 8px;
+  }
 }
+// .movie-searcher {
+//   @include smallmob {
+//     width: 20px;
+//     display: inline;
+//   }
+// }
 .movie-searcher-input {
   background-color: transparent;
   width: 100%;
@@ -178,6 +204,9 @@
   padding-bottom: 6px;
   color: $white;
   font-size: 14px;
+  @include smallmob {
+    font-size: 8px;
+  }
 }
 button.submit-icon {
   background-color: transparent;
