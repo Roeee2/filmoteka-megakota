@@ -7,17 +7,17 @@
   margin: 0px;
   transform: translate(-50%, -50%) scale(1);
   width: 220px;
-  height: 794px;
+  height: 894px;
   max-height: 90%;
   max-width: 90%;
   transition: transform $standard;
 
   @include tablet {
-    width: 304px;
+    width: 504px;
   }
 
   @include desktop {
-    width: 406px;
+    width: 606px;
   }
 
   @include smallmob {
@@ -29,26 +29,26 @@
   box-sizing: content-box;
   background-color: $white;
   margin: 0;
-  padding: 40px 20px 50px 20px;
+  padding: 10px 20px 10px 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   max-width: 180px;
-  max-height: 794px;
+  max-height: 894px;
 
   @include tablet {
     margin: 0;
     padding: 80px 20px 50px 20px;
     flex-direction: row;
-    max-width: 304px;
+    max-width: 504px;
   }
 
   @include desktop {
     margin: 0;
-    padding: 100px 12px 60px 12px;
+    padding: 40px 12px 20px 12px;
     flex-direction: row;
-    max-width: 406px;
+    max-width: 606px;
   }
 }
 
@@ -113,6 +113,7 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+  justify-content: center;
 }
 
 .students-logo {
@@ -167,6 +168,7 @@
 .students-names {
   font-size: 12px;
   color: $black;
+  justify-content: center;
 }
 
 .students-names ol {
@@ -178,4 +180,22 @@
 .students-names ol li {
   font-size: 18px;
   margin-bottom: 20px;
+}
+
+.students-image {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 20px;
+}
+
+.students-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.the-whole-thing {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
