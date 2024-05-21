@@ -114,6 +114,7 @@
   flex-direction: column;
   gap: 10px;
   justify-content: center;
+  text-align: center;
 }
 
 .students-logo {
@@ -169,16 +170,18 @@
   font-size: 12px;
   color: $black;
   justify-content: center;
+  text-align: center;
 }
 
 .students-names ol {
+  text-align: center;
   list-style-type: none;
   padding: 0;
   margin: 0;
 }
 
 .students-names ol li {
-  font-size: 18px;
+  font-size: 20px;
   margin-bottom: 20px;
 }
 
@@ -186,6 +189,7 @@
   width: 100%;
   max-width: 100%;
   margin-bottom: 20px;
+  justify-content: center;
 }
 
 .students-image img {
