@@ -1,0 +1,246 @@
+.signup-modal {
+  position: fixed;
+  overflow-y: auto;
+  top: 50%;
+  left: 50%;
+  padding: 0px;
+  margin: 0px;
+  transform: translate(-50%, -50%) scale(1);
+  width: 220px;
+  height: 594px;
+  max-height: 90%;
+  max-width: 90%;
+  transition: transform $standard;
+
+  @include tablet {
+    width: 304px;
+  }
+
+  @include desktop {
+    width: 406px;
+  }
+
+  @include smallmob {
+    width: 80%;
+  }
+}
+
+.signup-modal-content {
+  box-sizing: content-box;
+  background-color: $white;
+  margin: 0;
+  padding: 40px 20px 50px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 180px;
+  max-height: 594px;
+
+  @include tablet {
+    margin: 0;
+    padding: 80px 20px 50px 20px;
+    flex-direction: row;
+    max-width: 304px;
+  }
+
+  @include desktop {
+    margin: 0;
+    padding: 100px 12px 60px 12px;
+    flex-direction: row;
+    max-width: 406px;
+  }
+}
+
+.signup-modal-content a:hover,
+.signup-modal-content a:focus {
+  color: $rusty;
+}
+
+.signup-close-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  transition: fill $standard;
+  fill: $black;
+
+  @include tablet {
+    width: 26px;
+    height: 26px;
+  }
+
+  @include desktop {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+.signup-close-button:hover,
+.signup-close-button:focus {
+  fill: $modal-info;
+}
+
+.icon-signup-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  transition: fill $standard;
+  fill: $black;
+
+  @include tablet {
+    width: 26px;
+    height: 26px;
+  }
+
+  @include desktop {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+.icon-signup-close:hover,
+.icon-signup-close:focus {
+  fill: $flush-orange;
+}
+
+.signup-window {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.logon-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 40px;
+  @include tablet {
+    flex-direction: row;
+  }
+}
+
+.logo-icon {
+  fill: none;
+  stroke: $flush-orange;
+  margin: 10px auto;
+  transition: stroke $standard;
+  width: 24px;
+  height: 24px;
+
+  @include tablet {
+    margin-right: 26px;
+    width: 36px;
+    height: 36px;
+  }
+}
+
+.logo-icon:hover,
+.logo-icon:focus {
+  stroke: $flush-orange;
+}
+
+.logon-title {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-size: 20px;
+  width: 180px;
+  transition: color $standard;
+
+  @include tablet {
+    font-size: 24px;
+  }
+}
+
+.logon-title:hover,
+.logon-title:focus {
+  color: $flush-orange;
+}
+
+.signup-modal-content .signup-window label {
+  margin-top: 10px;
+  color: $black;
+}
+
+.input-box {
+  width: 100%;
+  max-width: 180px;
+  height: 40px;
+  flex-shrink: 0;
+  border-radius: 4px;
+  border: 1px solid $black;
+  color: $black;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 0 0 0 12px;
+  position: relative;
+  outline: none;
+  transition: border-color $standard;
+
+  @include tablet {
+    max-width: 240px;
+  }
+}
+
+.input-box:hover,
+.input-box:focus {
+  border-color: $flush-orange;
+}
+
+.signup-buttons {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 60px 0 0 0;
+  padding: 0;
+
+  @include tablet {
+    margin: 40px 0 0 0;
+  }
+
+  @include desktop {
+  }
+
+  @include smallmob {
+    max-width: 80%;
+  }
+}
+
+.signup-buttons button {
+  line-height: 1.33333;
+  text-transform: uppercase;
+  background-color: transparent;
+  border: 1px solid $black;
+  border-radius: 5px;
+  color: $black;
+  width: 110px;
+  height: 44px;
+  transition: background-color $standard;
+
+  @include tablet {
+    width: 125px;
+  }
+
+  @include desktop {
+    width: 136px;
+  }
+
+  @include smallmob {
+    font-size: 10px;
+    padding: 5px;
+  }
+}
+
+.signup-buttons button:hover {
+  background: $flush-orange;
+  color: $white;
+  border: none;
+}

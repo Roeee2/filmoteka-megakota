@@ -20,14 +20,14 @@ export async function popularMovies(page = 1, gallery) {
     const data = response.data;
     const { results, total_results } = data;
 
-    if (results.length === 0) {
-      gallery.innerHTML = '';
-      Notiflix.Notify.failure(
-        'Sorry, there are no movies matching your search query. Please try again.'
-      );
-    } else {
-      Notiflix.Notify.success(`Hooray! We found ${total_results} movies.`);
-    }
+    // if (results.length === 0) {
+    //   gallery.innerHTML = '';
+    //   Notiflix.Notify.failure(
+    //     'Sorry, there are no movies matching your search query. Please try again.'
+    //   );
+    // } else {
+    //   Notiflix.Notify.success(`Hooray! We found ${total_results} movies.`);
+    // }
     await drawMovies(results, page, data.total_pages);
   } catch (error) {
     Notiflix.Notify.failure('Error while loading the movies', error);

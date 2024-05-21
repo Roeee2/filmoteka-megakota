@@ -39,7 +39,6 @@
     }
     // }
   }
-
   @include desktop {
     // @media (min-width: 1024px) {
     background-image: url('./../images/desktop-main-bg.jpg');
@@ -126,10 +125,12 @@
   transition-property: background-color;
   transition: $standard;
 }
+
 .header-logo {
   display: flex;
   align-items: center;
 }
+
 .header-logo-icon {
   fill: none;
   stroke: $white;
@@ -186,6 +187,10 @@ button.submit-icon {
   opacity: 1;
 }
 
+.movie-searcher-input:hover::placeholder {
+  color: #ff010b;
+}
+
 .movie-searcher-input:focus {
   outline-width: 0;
 }
@@ -198,6 +203,7 @@ button.submit-icon {
   padding-top: 5px;
   padding-bottom: 6px;
 }
+
 
 // @media screen and (min-width: 768px) {
 // .header {
@@ -243,3 +249,4 @@ button.submit-icon {
 //     min-width: 394px;
 //   }
 // }
+
