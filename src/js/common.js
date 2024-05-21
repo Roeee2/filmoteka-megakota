@@ -112,7 +112,7 @@ loginButton.addEventListener('click', ev => {
       console.log(`Logged ${userEmail}`);
       setLogIn();
       const headBg = document.getElementById('head-bg');
-      const headLibBg = document.getElementById('head-lib-bg');
+      const hheadBgeadLibBg = document.getElementById('head-lib-bg');
       headBg.style.display = 'none';
       headLibBg.style.display = 'block';
       const loginModal = document.getElementById('loginModal');
@@ -204,21 +204,7 @@ mylibMenuMyliblary.addEventListener('click', ev => {
   headBg.style.display = 'none';
   headLibBg.style.display = 'block';
 });
-const myliblaryMenu = document.getElementById('myliblary-menu');
-myliblaryMenu.addEventListener('click', ev => {
-  const headBg = document.getElementById('head-bg');
-  const headLibBg = document.getElementById('head-lib-bg');
-  headBg.style.display = 'none';
-  headLibBg.style.display = 'block';
-});
-const homeMenuMyliblary = document.getElementById('home-menu-myliblary');
-homeMenuMyliblary.addEventListener('click', ev => {
-  const headBg = document.getElementById('head-bg');
-  const headLibBg = document.getElementById('head-lib-bg');
-  headBg.style.display = 'block';
-  headLibBg.style.display = 'none';
-  popularMovies(1);
-});
+
 function setLogIn() {
   const myliblaryMenu = document.getElementById('myliblary-menu');
   const loginMenu = document.getElementById('login-menu');

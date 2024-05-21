@@ -48,7 +48,8 @@
   @include desktop {
     // @media (min-width: 1024px) {
     background-image: url('./../images/desktop-main-bg.jpg');
-    max-width: 2200px;
+    max-width: 100%;
+    padding: 40px 0 90px 0;
 
     @media (min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),
@@ -228,11 +229,15 @@ button.submit-icon {
 
 .logo-div {
   display: flex;
-  justify-content: flex-start;
   align-items: center;
+  text-align: center;
   gap: 8px;
   padding-top: 5px;
   padding-bottom: 6px;
+}
+
+.logo-div svg {
+  vertical-align: middle;
 }
 
 // @media screen and (min-width: 768px) {
