@@ -217,6 +217,7 @@ homeMenuMyliblary.addEventListener('click', ev => {
   const headLibBg = document.getElementById('head-lib-bg');
   headBg.style.display = 'block';
   headLibBg.style.display = 'none';
+  popularMovies(1);
 });
 function setLogIn() {
   const myliblaryMenu = document.getElementById('myliblary-menu');
