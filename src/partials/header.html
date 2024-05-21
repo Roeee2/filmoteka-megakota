@@ -4,10 +4,14 @@
       <nav class="header-nav">
         <div class="logo-div">
           <a class="header-logo" href="./index.html">
-            <svg class="header-logo-icon" width="24px" height="24px">
-              <use href="./images/icons.svg#icon-home"></use>
-            </svg>
-            <p class="header-logo-text">Filmoteka</p>
+            <div class="logo-icon-container">
+              <svg class="header-logo-icon" width="24px" height="24px">
+                <use href="./images/icons.svg#icon-home"></use>
+              </svg>
+            </div>
+            <div class="logo-text-container">
+              <p class="header-logo-text">Filmoteka</p>
+            </div>
           </a>
         </div>
         <div class="header-menu">
@@ -33,10 +37,17 @@
             name="movie-name"
             placeholder="Movie search"
           />
-          <button type="submit" class="search-button"><svg class="movie-searcher-icon" width="12px" height="12px">
-            <use href="./images/icons.svg#icon-search"></use>
-          </svg></button>
+
+          <button type="submit" class="submit-icon">
+            <svg class="movie-searcher-icon" width="12px" height="12px">
+              <use href="./images/icons.svg#icon-search"></use>
+            </svg>
+          </button>
+
         </form>
+      </div>
+      <div class="notification-container">
+        <p class="query-notification"></p>
       </div>
     </div>
   </div>
