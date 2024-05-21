@@ -9,14 +9,14 @@
   margin: 0px;
   transform: translate(-50%, -50%) scale(1);
   width: 220px;
-  height: 940px;
+  height: 452px;
   max-height: 90%;
   max-width: 90%;
   transition: transform $standard;
 
   @include tablet {
     width: 304px;
-    height: 552px;
+    height: 452px;
   }
 
   @include desktop {
@@ -38,14 +38,14 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  max-width: 280px;
-  max-height: 940px;
+  max-width: 180px;
+  max-height: 450px;
 
   @include tablet {
     margin: 0;
     padding: 80px 20px 50px 20px;
     flex-direction: row;
-    max-width: 704px;
+    max-width: 304px;
     max-height: 552px;
   }
 
@@ -53,9 +53,14 @@
     margin: 0;
     padding: 100px 12px 60px 12px;
     flex-direction: row;
-    max-width: 806px;
+    max-width: 406px;
     max-height: 558px;
   }
+}
+
+.logon-modal-content a:hover,
+.logon-modal-content a:focus {
+  color: $rusty;
 }
 
 .logon-close-button {
@@ -107,7 +112,7 @@
 
 .icon-logon-close:hover,
 .icon-logon-close:focus {
-  fill: $modal-info;
+  fill: $flush-orange;
 }
 
 .logon-window {
@@ -118,34 +123,52 @@
 
 .logon-logo {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   margin-bottom: 40px;
+
+  @include tablet {
+    flex-direction: row;
+  }
 }
 
 .logo-icon {
-  vertical-align: middle;
   fill: none;
   stroke: $flush-orange;
-  margin-right: 36px;
+  margin: 10px auto;
   transition: stroke $standard;
+  width: 24px;
+  height: 24px;
+
+  @include tablet {
+    margin-right: 26px;
+    width: 36px;
+    height: 36px;
+  }
 }
 
 .logo-icon:hover,
 .logo-icon:focus {
-  stroke: $rusty;
+  stroke: $flush-orange;
 }
 
 .logon-title {
-  font-size: 28px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-size: 20px;
   width: 180px;
   transition: color $standard;
+
+  @include tablet {
+    font-size: 24px;
+  }
 }
 
 .logon-title:hover,
 .logon-title:focus {
-  color: $rusty;
+  color: $flush-orange;
 }
 
 .logon-modal-content .logon-window label {
@@ -155,7 +178,7 @@
 
 .input-box {
   width: 100%;
-  max-width: 240px;
+  max-width: 180px;
   height: 40px;
   flex-shrink: 0;
   border-radius: 4px;
@@ -167,6 +190,10 @@
   position: relative;
   outline: none;
   transition: border-color $standard;
+
+  @include tablet {
+    max-width: 240px;
+  }
 }
 
 .input-box:hover,
