@@ -26,8 +26,15 @@
   background-color: $white;
   list-style: none;
   cursor: pointer;
-  transition: transform 0.25s ease-in-out;
+  transition: transform $standard;
+
+  @include smallmob {
+    width: 80%;
+    height: auto;
+    padding-left: 20px;
+  }
 }
+
 .film-card:hover {
   transform: scale(1.03);
   // box-shadow: 6px 6px 5px 2px rgba(0, 0, 0, 0.3);
@@ -37,6 +44,10 @@
   border-radius: 5px;
   height: 402px;
   width: 280px;
+  @include smallmob {
+    width: 80%;
+    height: auto;
+  }
 }
 .card-film-title {
   font-family: $main-font;

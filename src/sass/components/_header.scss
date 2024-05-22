@@ -30,13 +30,15 @@
   }
 
   @include smallmob {
-    width: 280px;
+    width: 100%;
+    padding: 20px 10px 30px 10px;
   }
 
   @include tablet {
     // @media (min-width: 768px) and (max-width: 1024px) {
     background-image: url('./../images/tablet-main-bg.jpg');
     max-width: 1280px;
+    padding: 40px 0 92px 0;
 
     @media (min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),
@@ -85,6 +87,10 @@
 
   @include desktop {
     gap: 40px;
+  }
+
+  @include smallmob {
+    gap: 8px;
   }
 }
 
@@ -177,13 +183,15 @@
   }
 
   @include smallmob {
-    width: 100px;
+    min-width: 80%;
   }
 }
+
 .notification-container {
   margin-top: 20px;
   text-align: center;
 }
+
 .query-notification {
   color: $errors;
   font-size: 14px;
@@ -205,6 +213,7 @@
   padding-bottom: 6px;
   color: $white;
   font-size: 14px;
+
   @include smallmob {
     font-size: 8px;
   }
@@ -236,6 +245,15 @@ button.submit-icon {
   padding-bottom: 6px;
 }
 
+.header-logo-text {
+  @include tablet {
+    font-size: 24px;
+  }
+
+  @include desktop {
+    font-size: 30px;
+  }
+}
 .logo-div svg {
   vertical-align: middle;
 }
