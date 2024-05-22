@@ -1,5 +1,6 @@
 .container {
   max-width: 320px;
+
   margin: 0 auto;
   background-color: none;
 }
@@ -29,9 +30,9 @@
   transition: transform $standard;
 
   @include smallmob {
-    width: 80%;
+    width: 100%;
     height: auto;
-    padding-left: 20px;
+    padding: 0 20px;
   }
 }
 
@@ -45,7 +46,7 @@
   height: 402px;
   width: 280px;
   @include smallmob {
-    width: 80%;
+    width: 100%;
     height: auto;
   }
 }
@@ -120,37 +121,7 @@
   line-height: 16px;
   display: flex;
 }
-.pagination {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  list-style: none;
-  margin: 0 auto;
-  padding: 40px 0;
-}
-.pagination li {
-  margin: 0 auto;
-}
-.pagination li a {
-  text-decoration: none;
-  color: $black;
-  background-color: $white;
-  border-radius: 5px;
-  margin: 0 auto;
-  display: grid;
-  align-items: center;
-  justify-content: center;
-  height: 40px;
-  width: 40px;
-}
-.pagination li a.pag-a {
-  background-color: $bg-footer;
-  color: $black;
-}
-.pagination li a.active {
-  background-color: $flush-orange;
-  color: $white;
-}
+
 .card-rating-home {
   font-size: 12px;
 }

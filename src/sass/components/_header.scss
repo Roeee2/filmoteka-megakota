@@ -64,6 +64,7 @@
 
 .header-flex {
   display: flex;
+  max-width: 90%;
   min-height: 98px;
 }
 
@@ -200,12 +201,7 @@
     font-size: 8px;
   }
 }
-// .movie-searcher {
-//   @include smallmob {
-//     width: 20px;
-//     display: inline;
-//   }
-// }
+
 .movie-searcher-input {
   background-color: transparent;
   width: 100%;
@@ -258,47 +254,10 @@ button.submit-icon {
   vertical-align: middle;
 }
 
-// @media screen and (min-width: 768px) {
-// .header {
-//   background-image: url('./../images/tablet-main-bg.jpg');
-//   padding: 40px 32px 81px 32px;
-// }
-// @media (min-device-pixel-ratio: 2),
-//   (min-resolution: 192dpi),
-//   (min-resolution: 2dppx) {
-//   .header {
-//     background-image: url('./../images/tablet-main-bg@2x.jpg');
-// }
-// }
-
-//   .header-logo-text {
-//     display: inline-block;
-//     color: $white;
-//     font-family: $main-font;
-//     font-size: 30px;
-//     font-weight: 500;
-//     margin-left: 10px;
-//   }
-
-//   .movie-searcher-form {
-//     min-width: 336px;
-//   }
-// }
-
-// @media screen and (min-width: 1024px) {
-// .header {
-//   background-image: url('./../images/desktop-main-bg.jpg');
-// }
-
-// @media (min-device-pixel-ratio: 2),
-//   (min-resolution: 192dpi),
-//   (min-resolution: 2dppx) {
-//   .header {
-//     background-image: url('./../images/desktop-main-bg@2x.jpg');
-//   }
-// }
-
-//   .movie-searcher-form {
-//     min-width: 394px;
-//   }
-// }
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+  -webkit-text-fill-color: #000 !important;
+  border: 1px solid #fff;
+  background-color: transparent !important;
+  background-clip: content-box;
+}
