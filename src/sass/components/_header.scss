@@ -228,7 +228,7 @@ button.submit-icon {
 
 .movie-searcher-input:focus {
   outline-width: 0;
-  background-color: transparent;
+  background-color: #272e34;
   outline: none;
 }
 
@@ -255,10 +255,33 @@ button.submit-icon {
 }
 
 input:-webkit-autofill {
-  -webkit-box-shadow: none;
-  -webkit-text-fill-color: #000 !important;
-  border: 1px solid #fff;
-  background-color: none !important;
+  -webkit-box-shadow: 0 0 0px 1000px #272e34 inset !important;
+  -webkit-text-fill-color: #fff !important;
+  border: none;
+  background-clip: content-box;
+  appearance: inherit !important;
+}
+
+input:-webkit-autofill-selected {
+  -webkit-box-shadow: 0 0 0px 1000px #272e34 inset !important;
+  -webkit-text-fill-color: #fff !important;
+  border: none;
+  background-clip: content-box;
+  appearance: inherit !important;
+}
+
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px #272e34 inset !important;
+  -webkit-text-fill-color: #fff !important;
+  border: none;
+  background-clip: content-box;
+  appearance: inherit !important;
+}
+
+.movie-searcher input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px #272e34 inset !important;
+  -webkit-text-fill-color: #fff !important;
+  border: none;
   background-clip: content-box;
   appearance: inherit !important;
 }
